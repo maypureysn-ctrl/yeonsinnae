@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- 연신내 피부 노트 v3 · 2026-11-03 · 원본: mei 고민 안내(원장 승인본 12편) · 빌드: reports/tmp/mei_landing_build_1103.py -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>연신내 피부 노트</title>
+<meta name="description" content="메이퓨어의원 연신내점. 기미·주름·처짐·홍조 등 피부 고민 12가지의 원인, 방법, 회복 기간, 자주 하는 오해를 연구 결과와 함께 정리했어요.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* 레이아웃: 진료실에서 건네는 '피부 노트'. 한 줄 읽기 폭(약 34자), 글마다 피부 단면 삽화, 끝에는 다음 글. 50~60대 기준 본문 18px */
+:root {
+  --paper: #f3f5f4;      /* 바탕: 차가운 자기(磁器) 흰색 */
+  --card: #ffffff;
+  --ink: #18252a;
+  --muted: #5b6a6e;
+  --rule: #d6dedd;
+  --teal: #1d6a64;       /* 강조: 진료실 청록 */
+  --teal-soft: #e2efed;
+  --on-teal: #ffffff;
+  --warn: #9a3b2e;       /* '진료 먼저' 신호 전용 */
+  --warn-soft: #f7e8e4;
+  /* 삽화 */
+  --s-epi: #f1d9c9; --s-derm: #f7e6dc; --s-fat: #fbf1d8; --s-fiber: #d9a99a; --s-line: #b88c7c;
+  --s-pig: #7a4b2f; --s-vessel: #c8463f; --s-sebum: #e2b93b; --s-label: #5b6a6e;
+  --display: "Gowun Batang", "Nanum Myeongjo", "AppleMyungjo", serif;
+  --body: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111a1c; --card: #182326; --ink: #e6eeee; --muted: #9fb0b2; --rule: #2a383b;
+    --teal: #63b8ad; --teal-soft: #1b3533; --on-teal: #0c1617; --warn: #f0a08f; --warn-soft: #3a2420;
+    --s-epi: #6b5246; --s-derm: #4d3b34; --s-fat: #4f4632; --s-fiber: #b98374; --s-line: #c79c8b;
+    --s-pig: #e0b08c; --s-vessel: #ff8a7c; --s-sebum: #f2cf63; --s-label: #9fb0b2;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111a1c; --card: #182326; --ink: #e6eeee; --muted: #9fb0b2; --rule: #2a383b;
+  --teal: #63b8ad; --teal-soft: #1b3533; --on-teal: #0c1617; --warn: #f0a08f; --warn-soft: #3a2420;
+  --s-epi: #6b5246; --s-derm: #4d3b34; --s-fat: #4f4632; --s-fiber: #b98374; --s-line: #c79c8b;
+  --s-pig: #e0b08c; --s-vessel: #ff8a7c; --s-sebum: #f2cf63; --s-label: #9fb0b2;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 18px/1.75 var(--body); word-break: keep-all; overflow-wrap: anywhere; }
+a { color: inherit; }
+.wrap { max-width: 720px; margin: 0 auto; padding-left: max(18px, env(safe-area-inset-left, 0px)); padding-right: max(18px, env(safe-area-inset-right, 0px)); padding-block: 0 120px; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 18px; border-bottom: 1px solid var(--rule); }
+.brand { font: 700 17px/1.3 var(--body); text-decoration: none; }
+.brand span { display: block; font-weight: 400; font-size: 14px; color: var(--muted); }
+.top .tel { font: 700 16px/1 var(--body); color: var(--teal); text-decoration: none; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.eyebrow { font: 700 14px/1.4 var(--body); color: var(--teal); letter-spacing: .06em; }
+h1 { font: 700 clamp(30px, 7.6vw, 44px)/1.3 var(--display); margin: 8px 0 0; text-wrap: balance; }
+h2 { font: 700 24px/1.4 var(--display); margin: 0 0 14px; text-wrap: balance; }
+h3 { font: 700 19px/1.45 var(--body); margin: 0; }
+.lead { color: var(--muted); font-size: 19px; margin: 14px 0 0; max-width: 34em; }
+section { padding-block: 34px; border-bottom: 1px solid var(--rule); }
+section:last-of-type { border-bottom: 0; }
+.hero { padding-block: 34px 28px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 18px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 15px; }
+.facts b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+.topic { display: grid; gap: 6px; align-content: start; padding: 18px 18px 16px; background: var(--card); border: 1px solid var(--rule); border-radius: 14px; text-decoration: none; min-width: 0; }
+.topic:hover { border-color: var(--teal); }
+.topic:focus-visible, .btn:focus-visible, .next a:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+.topic .q { color: var(--muted); font-size: 16px; line-height: 1.6; }
+.topic .meta { display: flex; gap: 10px; font-size: 14px; color: var(--muted); }
+.read { color: var(--teal); font-weight: 700; }
+.myth { padding: 18px 0; border-top: 1px solid var(--rule); display: grid; gap: 8px; }
+.myth:first-of-type { border-top: 0; padding-top: 4px; }
+.myth .q { font: 700 19px/1.5 var(--display); }
+.myth .who { font-size: 14px; color: var(--muted); }
+.myth .more { font-size: 15px; font-weight: 700; color: var(--teal); text-decoration: none; }
+ul.plain { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
+.cols { list-style: none; padding: 0; margin: 0; display: grid; gap: 2px; }
+.cols a { display: block; padding: 12px 0; border-bottom: 1px solid var(--rule); text-decoration: none; }
+.cols a:hover { color: var(--teal); }
+.place { display: grid; gap: 4px; }
+.place .big { font: 700 21px/1.45 var(--body); }
+.place dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 12px 0 0; font-size: 16px; }
+.place dt { color: var(--muted); }
+.place dd { margin: 0; font-variant-numeric: tabular-nums; }
+/* 글 화면 */
+.progress { position: fixed; left: 0; right: 0; top: 0; height: 3px; background: transparent; z-index: 20; }
+.progress i { display: block; height: 100%; width: 0; background: var(--teal); }
+.back { display: inline-block; margin-top: 18px; font-size: 15px; color: var(--muted); text-decoration: none; }
+figure { margin: 26px 0 0; }
+figure svg { width: 100%; height: auto; display: block; border-radius: 12px; background: var(--card); border: 1px solid var(--rule); }
+figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
+.glance { display: grid; gap: 10px; margin-top: 22px; }
+.glance div { display: grid; grid-template-columns: 6.5em 1fr; gap: 12px; padding: 12px 14px; background: var(--card); border: 1px solid var(--rule); border-radius: 12px; font-size: 16px; }
+.glance b { color: var(--teal); }
+@media (max-width: 480px) { .glance div { grid-template-columns: 1fr; gap: 2px; } }
+.glance .warn b { color: var(--warn); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: s; }
+.steps li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; }
+.steps li::before { counter-increment: s; content: counter(s); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid var(--teal); color: var(--teal); font: 700 16px/1 var(--body); }
+.steps span { display: block; color: var(--muted); font-size: 17px; }
+.methods { display: grid; gap: 10px; }
+.method { padding: 14px 16px; background: var(--card); border: 1px solid var(--rule); border-radius: 12px; }
+.method .badge { font-size: 13px; font-weight: 700; color: var(--teal); background: var(--teal-soft); padding: 2px 8px; border-radius: 999px; margin-left: 8px; vertical-align: 2px; }
+.method p { margin: 4px 0 0; color: var(--muted); font-size: 16px; }
+.hint { font-size: 15px; color: var(--muted); margin: 12px 0 0; }
+.recov { display: grid; gap: 14px; }
+.recov p { margin: 4px 0 0; font-size: 16px; }
+.redflag { background: var(--warn-soft); border-radius: 14px; padding: 18px 18px 18px 20px; }
+.redflag h2 { color: var(--warn); }
+.mythcard { padding: 18px; background: var(--card); border: 1px solid var(--rule); border-radius: 14px; display: grid; gap: 8px; }
+.myths { display: grid; gap: 12px; }
+.mythcard .q { font: 700 19px/1.5 var(--display); }
+.mythcard p { margin: 0; font-size: 17px; }
+.refs { font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.refs a { color: var(--teal); }
+.faq { display: grid; gap: 14px; }
+.faq p { margin: 4px 0 0; color: var(--muted); font-size: 17px; }
+.two { display: grid; gap: 24px; }
+@media (min-width: 640px) { .two { grid-template-columns: 1fr 1fr; } }
+.cta { background: var(--teal); color: var(--on-teal); border-radius: 16px; padding: 22px; display: grid; gap: 12px; }
+.cta h2 { margin: 0; }
+.cta p { margin: 0; opacity: .9; font-size: 16px; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 18px; border-radius: 12px; font: 700 17px/1.2 var(--body); text-decoration: none; }
+.cta .btn { background: var(--on-teal); color: var(--teal); }
+.next { display: grid; gap: 10px; }
+.next a { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; padding: 16px 18px; background: var(--card); border: 1px solid var(--rule); border-radius: 14px; text-decoration: none; }
+.next a:hover { border-color: var(--teal); }
+.next .q { grid-column: 1; color: var(--muted); font-size: 15px; }
+.next .arrow { grid-row: 1 / span 2; grid-column: 2; color: var(--teal); font-size: 22px; }
+.note { font-size: 14px; color: var(--muted); line-height: 1.65; }
+/* 아래 고정 버튼 */
+.dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 15; background: var(--card); border-top: 1px solid var(--rule);
+  padding: 10px max(14px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px)); }
+.dock .in { max-width: 720px; margin: 0 auto; display: flex; gap: 10px; }
+.dock .btn { flex: 1; }
+.dock .call { background: var(--teal); color: var(--on-teal); }
+.dock .book { background: var(--teal-soft); color: var(--teal); }
+@media (prefers-reduced-motion: no-preference) { .topic, .next a { transition: border-color .15s; } }
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#">메이퓨어의원 연신내점<span>연신내역 지하 연결 · 메트로타워 3층 4호</span></a>
+    <a class="tel" id="top-tel" href="#"></a>
+  </header>
+  <main id="app"></main>
+  <footer class="note">
+    <p>이 노트는 이해를 돕기 위한 일반적인 정보이며 진단이 아니에요. 효과와 회복 기간은 사람마다 다르고, 시술 여부와 방법은 진료 후 의료진과 상의해 정해요. 시술마다 붉음·붓기·멍·색소 변화 같은 부작용이 생길 수 있어요.</p>
+    <p>메이퓨어의원 연신내점 · 서울 은평구 통일로 856, 메트로타워 3층 4호 · <span id="foot-tel"></span></p>
+  </footer>
+</div>
+<nav class="dock" aria-label="상담과 예약"><div class="in">
+  <a class="btn call" id="dock-call" href="#">전화 상담</a>
+  <a class="btn book" id="dock-book" href="#">네이버 예약</a>
+  <a class="btn book" id="dock-kakao" href="#">카카오톡</a>
+</div></nav>
+
+<script>
+/* 병원 정보: 비어 있는 값은 버튼이 숨겨져요 */
+const CLINIC = {
+  PHONE: "02-389-9980",
+  NAVER_BOOKING_URL: "",
+  KAKAO_CHANNEL_URL: "",
+  HOURS: "(확인 후 기재)"
+};
+const DATA = [{"slug": "pigment", "title": "기미·잡티", "lead": "화장으로 가려도 얼룩이 비치고, 여름이 지나면 더 진해지나요?", "cause": ["자외선, 호르몬 변화, 피부 자극이 색소 세포(멜라닌 세포)를 깨워 멜라닌을 많이 만들게 해요. 만들어진 색소가 피부에 쌓이면 얼룩이나 점처럼 보여요.", "기미는 진해졌다 옅어졌다를 반복하며 범위가 넓어지기 쉽고, 문지르거나 열을 받으면 다시 진해질 수 있어 자극을 줄이는 관리가 중요해요."], "forwho": ["양 볼에 넓게 퍼진 옅은 갈색 얼룩이 있어요", "점처럼 진한 잡티가 생겼어요", "계절이나 컨디션에 따라 진하기가 달라져요", "피부톤이 전체적으로 칙칙해 보여요"], "steps": [{"title": "넓게 퍼진 얼룩(기미 쪽)", "desc": "낮은 강도로 여러 번, 자극 없이 옅게 하는 방법을 봐요."}, {"title": "점처럼 진한 잡티", "desc": "색소만 표적으로 하는 빛·레이저로 정리해요."}, {"title": "도드라진 검은 점", "desc": "종류를 먼저 확인해야 해서 원장님이 직접 봐요."}], "methods": [{"name": "피코토닝", "badge": "", "desc": "색소를 아주 잘게 부숴 몸이 흡수하게 해 옅게 만들어요."}, {"name": "멜라듀스", "badge": "", "desc": "색소가 만들어지는 과정을 줄이는 미백 스킨부스터예요."}, {"name": "클라리티", "badge": "", "desc": "진한 색소를 표적으로 하는 레이저예요."}, {"name": "콜라겐토닝", "badge": "", "desc": "톤과 탄력을 함께 관리하는 레이저예요."}], "recovery": [{"name": "피코토닝", "text": "10~15분 걸리고 보통 마취 없이 진행해요(예민하면 마취 크림). 약간 따끔한 정도이고, 붉음·열감은 몇 시간에서 하루 가지만 당일 세안·화장이 가능해요. 1주 간격으로 5~10회 받고, 1~2주 뒤부터 옅어지기 시작해 3~5회차부터 느껴져요. 이후 1~3개월마다 유지 토닝을 해요. 자외선 차단은 꼭 하고, 당일은 스크럽·필링·사우나·음주를 피해 주세요."}, {"name": "멜라듀스", "text": "10~20분 걸리고 보통 마취 없이 진행해요. 약간 따끔하고 잠깐 붉을 수 있지만 당일 세안·화장이 가능해요. 1주 간격으로 5회 이상 받고, 3~5회쯤부터 톤이 맑아져요. 기미는 다시 짙어질 수 있어 유지 관리가 필요해요. 자외선 차단을 꼼꼼히 하고 열이나 사우나는 피해 주세요."}, {"name": "클라리티", "text": "부위와 세기에 따라 10~30분 걸리고, 마취는 없거나 마취 크림을 발라요. 약간 따끔하거나 보통 정도예요. 붉음·열감은 몇 시간에서 하루 가고, 흑자 같은 진한 색소는 딱지가 1~2주 생겼다가 떨어져요. 세안은 당일 순하게, 화장은 딱지 자리를 피해 다음 날부터 가능해요. 딱지가 떨어지고 2~4주 뒤 옅어진 게 보여요. 2~4주 간격으로 3회 이상(또는 1주 간격 5~10회 프로그램) 받아요. 딱지는 떼지 말고, 1주일은 스크럽을, 3~5일은 사우나와 강한 햇볕을 피해 주세요."}, {"name": "콜라겐토닝", "text": "10~15분 걸리고 마취가 필요 없어요. 통증이 거의 없고 붉음도 잠깐이라 당일 세안·화장이 가능해요. 1주 간격으로 10회 이상 받고, 4~5회쯤부터 톤과 탄력이 달라지기 시작해요. 이후에는 1~3개월마다 유지 관리를 해요. 자외선 차단을 꼼꼼히 하고 당일은 사우나·스크럽을 피해 주세요."}], "redflag": ["새로 생긴 점이 빠르게 커지거나, 색·모양이 고르지 않거나, 피가 나면 바로 진료를 받으세요.", "진하게 도드라진 검은 점은 종류를 먼저 확인해야 해서 원장님이 직접 봐요."], "myths": [{"q": "기미는 자외선만 막으면 되나요?", "a": "연구에서는 자외선뿐 아니라 눈에 보이는 빛(가시광선)도 기미를 짙게 하는 데 관여할 수 있다고 봐요. 기미가 있는 68명을 비교한 연구에서, 가시광선까지 막아 주는 산화철 성분이 든 색조 자외선차단제를 쓴 쪽이 자외선만 막는 차단제를 쓴 쪽보다 기미가 더 많이 옅어졌어요. 다만 8주 동안 미백 치료를 함께 받은 결과이고, 개인차가 있어요.", "refs": [{"label": "Castanedo-Cazares 외, Photodermatol Photoimmunol Photomed 2014", "href": "https://pubmed.ncbi.nlm.nih.gov/24313385/"}], "cols": [{"label": "기미, 햇빛만 피하면 끝일까? 놓치고 있던 3가지 원인", "href": "https://www.maypureclinic.com/community/yeonsinnae/123071026"}]}, {"q": "레이저를 세게 받으면 기미가 한 번에 없어지나요?", "a": "여러 연구를 정리한 리뷰에 따르면 레이저·빛 치료는 기미에 효과가 있지만, 시간이 지나면 다시 생기는 경우가 많았어요. 일부 방식은 치료 뒤 오히려 색이 짙어지거나 하얗게 빠지는 염증 후 색소 변화 위험이 있다고 보고됐어요. 그래서 기미는 한 번에 없애기보다 꾸준히 관리하는 피부 상태로 보는 게 좋아요.", "refs": [{"label": "Trivedi 외, Int J Womens Dermatol 2017", "href": "https://pubmed.ncbi.nlm.nih.gov/28492049/"}], "cols": []}, {"q": "먹는 기미약(트라넥삼산)은 누구나 먹어도 되나요?", "a": "한 병원에서 이 약을 복용한 561명의 기록을 돌아본 연구에서 약 90%가 좋아졌지만, 좋아진 사람 중 약 27%는 다시 나빠졌어요. 드물게 혈전(피떡) 같은 부작용도 있어, 연구진은 먹기 전에 혈전 위험을 꼭 확인해야 한다고 했어요. 먹어도 되는지는 진료 후 원장님이 판단해요.", "refs": [{"label": "Lee 외, J Am Acad Dermatol 2016", "href": "https://pubmed.ncbi.nlm.nih.gov/27206758/"}], "cols": []}], "faq": [{"q": "여름에도 받을 수 있나요?", "a": "시술 종류에 따라 가능해요. 자외선 차단을 더 꼼꼼히 하는 것이 중요해요."}, {"q": "시술 후 더 진해질 수도 있나요?", "a": "드물게 일시적으로 진해질 수 있어 강도를 낮게 조절하고 경과를 봐요."}], "habits": ["흐린 날·실내라고 자외선 차단을 거르기", "세안·화장 지울 때 문지르기", "사우나·찜질·요리 열기"], "prep": ["붉거나 붓는 기간을 며칠까지 괜찮은지", "티 안 나게 조금, 또는 뚜렷한 변화 중 어느 쪽인지", "다가오는 중요한 일정이 있는지", "예전에 받아 본 시술과 그때 느낌", "상담 메이 노트를 보며 고민과 원하는 방향을 함께 확인해요.", "진료·시술 원장님이 피부를 보고 방법과 강도를 정해요.", "관리 시술 뒤 주의할 점과 다음 관리 시기를 안내해 드려요."], "columns": [{"label": "다크서클은 한 종류가 아닙니다", "href": "https://www.maypureclinic.com/community/yeonsinnae/136431866"}, {"label": "기미, 햇빛만 피하면 끝일까? 놓치고 있던 3가지 원인", "href": "https://www.maypureclinic.com/community/yeonsinnae/123071026"}], "next": ["redness", "texture", "wrinkle"]}, {"slug": "wrinkle", "title": "주름", "lead": "웃을 때만 보이던 선이 요즘은 가만히 있어도 남아 있나요?", "cause": ["표정을 지을 때마다 근육이 피부를 같은 자리로 접어요. 젊을 때는 피부 속 콜라겐과 탄력 섬유가 접힌 자리를 금방 펴 주지만, 나이가 들며 이 섬유가 줄면 접힌 자리가 선으로 남기 시작해요.", "자외선, 건조, 수면 자세처럼 매일 반복되는 습관도 콜라겐을 줄이거나 같은 자리를 계속 접어 주름을 깊게 만들어요."], "forwho": ["웃거나 찡그릴 때 눈가·미간·이마에 선이 생겨요", "화장을 하면 선을 따라 끼어요", "예전엔 금방 펴지던 선이 가만히 있어도 보여요", "팔자나 목에 가로·사선 주름이 신경 쓰여요"], "steps": [{"title": "움직일 때 생기는 주름", "desc": "근육 움직임이 원인이라, 움직임을 부드럽게 줄이는 방법부터 봐요."}, {"title": "가만히 있어도 보이는 주름", "desc": "피부 속이 얇아진 상태라, 움직임 조절과 함께 얇게 채우거나 재생을 돕는 방법을 같이 봐요."}, {"title": "팔자 — 그늘처럼 꺼져 보이는 경우", "desc": "볼 앞쪽이 꺼지며 생기는 그늘이라, 선만 채우기보다 꺼진 부위를 자연스럽게 채우는 방법(힐로웨이브·올리디아 365)을 먼저 봐요."}, {"title": "팔자·목 — 접힌 선이 남는 경우", "desc": "가만히 있어도 접혀 남는 선은 선을 채우고 지지층을 함께 봐요."}], "methods": [{"name": "보톡스", "badge": "", "desc": "주름을 만드는 근육의 움직임을 부드럽게 줄여 선이 깊어지는 것을 늦춰요."}, {"name": "벨로테로 소프트", "badge": "", "desc": "얇게 남은 선을 부드러운 히알루론산으로 얇게 채워요."}, {"name": "팔자 필러", "badge": "", "desc": "가만히 있어도 남는 깊은 팔자 선을 채워요."}, {"name": "힐로웨이브", "badge": "연신내점 도입", "desc": "팔자 주변이 꺼져 생긴 그늘을 수분감 있게 은은하게 채워요."}, {"name": "올리디아 365", "badge": "연신내점 도입", "desc": "콜라겐 생성을 도와 꺼진 부위를 서서히 채워 그늘을 줄여요."}, {"name": "리쥬란", "badge": "", "desc": "피부 재생을 도와 얇아진 피부를 단단하게 해요(목주름 등)."}, {"name": "쿨소닉", "badge": "연신내점 도입", "desc": "깊은 층을 당겨 볼이 내려오며 생기는 선이 깊어지는 걸 늦춰요."}], "recovery": [{"name": "보톡스", "text": "마취 없이 진행하고, 바늘이 들어갈 때 약간 따끔한 정도예요. 주사 자리가 하루 이틀 붉을 수 있지만 바로 일상생활이 가능해요. 효과는 2주쯤 지나 자리를 잡고 3개월 정도 유지돼서, 보통 3개월 간격으로 다시 맞아요."}, {"name": "벨로테로 소프트", "text": "약간 따끔한 정도로 진행해요. 시술 뒤 2주가량은 넣은 자리가 표면보다 조금 도드라져 보이다가 시간이 지나며 가라앉고, 붉음·붓기도 2주 정도 갈 수 있어서 일상 복귀는 5~7일로 봐요. 덜 가라앉는 부분은 눌러 주면 가라앉지만, 처음부터 세게 누르지는 마세요. 효과는 2주쯤 뒤 자연스럽게 자리 잡고 6개월 정도 유지돼요. 보통 1회 시술해요."}, {"name": "팔자 필러", "text": "주사 마취를 하고 진행해서 약간 따끔한 정도예요. 시술 직후부터 모양을 함께 확인할 수 있고, 하루 이틀 붉을 수 있지만 바로 일상생활이 가능해요. 보통 1회로 1~2년 유지돼요. 시술 뒤 4주 안에는 크게 웃거나 입 주변을 많이 움직이면 필러가 이동할 수 있어 조심해 주세요."}, {"name": "힐로웨이브", "text": "주사 마취를 하고 진행해서 약간 따끔한 정도예요. 바로 일상생활이 가능하고, 붉은 기는 1~2주 정도 갈 수 있어요. 효과는 바로 보이기 시작해요. 1회 시술하면 3~4개월 유지되고, 3개월 간격으로 3회 받으시면 1년 정도 좋은 상태가 유지돼요."}, {"name": "올리디아 365", "text": "주사 마취를 하고 진행해서 약간 따끔한 정도이고, 붉은 기는 거의 없어 바로 일상생활이 가능해요. 시술 직후 차오른 볼륨은 한 달쯤 지나 빠지고, 그때부터 콜라겐이 조금씩 차올라요. 서서히 차기 때문에 처음 볼륨보다 부드럽고 잔잔한 느낌이에요. 보통 4주 간격으로 3회 진행하고, 1.5~2년 정도 유지돼요."}, {"name": "리쥬란", "text": "마취 크림을 20~30분 바른 뒤 15~30분 주입해요. 통증은 보통 정도예요. 손주사는 주사 자리가 오돌토돌하게 1~3일 올라오고, 멍·붓기는 2~5일 가다가 대부분 1주 안에 좋아져요. 세안은 당일, 화장은 다음 날부터 가볍게 하시면 돼요. 3~4주 간격으로 3회 받고, 2주 뒤부터 결이 달라져 3회를 마치면 탄력이 좋아져요. 6~12개월 유지되고, 이후 6~12개월마다 1회 관리해요. 올라온 자리는 문지르거나 마사지하지 말고, 3일은 사우나·음주·격한 운동을 피해 주세요."}, {"name": "쿨소닉", "text": "20~30분 걸리고 마취 없이 진행해요. 냉각을 함께 하며 진행해요. 붉음·붓기가 거의 없어 바로 세안·화장이 가능해요. 직후 당기는 느낌이 들고, 2~4주 뒤 탄력이 좋아져요. 보통 1회 받고 6개월~1년 유지돼서, 그 간격으로 다시 받아요. 1주일은 과음·사우나·격한 운동, 필링·스크럽을 피해 주세요."}], "redflag": [], "myths": [{"q": "선크림은 햇빛 강한 여름에만 바르면 되지 않나요?", "a": "호주에서 900여 명을 4년 반 동안 비교한 연구가 있어요. 매일 자외선 차단제를 바른 그룹은 피부 노화 진행이 뚜렷하게 관찰되지 않았고, 필요할 때만 바른 그룹보다 노화 정도가 약 24% 적었어요. 계절과 상관없이 매일 꾸준히 바르는 습관이 주름 예방의 기본이에요.", "refs": [{"label": "Hughes 외, Ann Intern Med 2013", "href": "https://pubmed.ncbi.nlm.nih.gov/23732711/"}], "cols": []}, {"q": "레티놀은 젊을 때나 효과 있지, 나이 들면 소용없지 않나요?", "a": "평균 87세 어르신을 대상으로 한 연구가 있어요. 한쪽 팔에만 레티놀 로션을 24주 동안 발랐더니 바르지 않은 쪽보다 잔주름이 의미 있게 개선됐어요. 피부 속 콜라겐 생성이 늘어난 것도 함께 확인됐고, 자극감 같은 반응에는 개인차가 있어요.", "refs": [{"label": "Kafi 외, Arch Dermatol 2007", "href": "https://pubmed.ncbi.nlm.nih.gov/17515510/"}], "cols": []}, {"q": "보톡스를 계속 맞으면 내성이 생겨서 나중엔 안 듣나요?", "a": "여러 임상시험을 모아 분석한 연구에서, 치료 후 중화항체(내성의 원인)가 새로 생긴 사람은 1% 미만으로 드물었어요. 항체가 생겼더라도 실제로 효과가 떨어진 경우는 그중 일부였어요. 다만 개인차가 있으니, 효과가 예전 같지 않다고 느끼시면 의료진과 상담해 원인을 확인하는 것이 좋아요.", "refs": [{"label": "Jankovic 외, Toxins 2023", "href": "https://pubmed.ncbi.nlm.nih.gov/37235376/"}], "cols": [{"label": "보톡스를 맞아도 남는 주름, 범인은 \"콜라겐\"", "href": "https://www.maypureclinic.com/community/yeonsinnae/135860219"}]}], "faq": [{"q": "보톡스를 맞으면 표정이 어색해지지 않나요?", "a": "양과 위치를 표정에 맞게 조절해요. 처음이라면 적은 양으로 시작해 반응을 보는 경우가 많아요. 원장님 칼럼:보톡스로 주름 개선 가능할까? 부위별 체크포인트 ↗"}, {"q": "효과는 얼마나 가나요?", "a": "사람과 부위에 따라 달라요. 보톡스는 보통 몇 달 간격으로 다시 보고, 채우는 시술은 그보다 길게 보는 편이에요."}, {"q": "주름이 생기기 전에 해도 되나요?", "a": "움직일 때만 생기는 시기에 관리하면 선이 깊어지는 걸 늦추는 데 도움이 될 수 있어요. 시기는 상담에서 함께 정해요."}], "habits": ["눈부실 때 찡그림 (선글라스가 도움)", "화면 볼 때 미간 찌푸리기", "엎드려·옆으로 자는 습관"], "prep": ["붉거나 붓는 기간을 며칠까지 괜찮은지", "티 안 나게 조금, 또는 뚜렷한 변화 중 어느 쪽인지", "다가오는 중요한 일정이 있는지", "예전에 받아 본 시술과 그때 느낌", "상담 메이 노트를 보며 고민과 원하는 방향을 함께 확인해요.", "진료·시술 원장님이 피부를 보고 방법과 강도를 정해요.", "관리 시술 뒤 주의할 점과 다음 관리 시기를 안내해 드려요."], "columns": [{"label": "나이 들어 보이는 건 '주름' 때문이 아닙니다 — 피부 밀도", "href": "https://www.maypureclinic.com/community/yeonsinnae/136760563"}, {"label": "팔자주름은 '주름'이 아닙니다", "href": "https://www.maypureclinic.com/community/yeonsinnae/136228297"}, {"label": "보톡스를 맞아도 남는 주름, 범인은 \"콜라겐\"", "href": "https://www.maypureclinic.com/community/yeonsinnae/135860219"}, {"label": "보톡스로 주름 개선 가능할까? 부위별 체크포인트", "href": "https://www.maypureclinic.com/community/yeonsinnae/121929347"}], "next": ["sagging", "volume", "elasticity"]}, {"slug": "sagging", "title": "처짐", "lead": "턱선이 예전보다 흐려지고, 볼이 아래로 내려온 느낌이 드시나요?", "cause": ["얼굴 피부는 그 아래의 지방, 근막, 인대가 붙잡아 주고 있어요. 나이가 들며 이 지지층이 느슨해지고 볼 지방이 아래로 내려오면 턱선 경계가 흐려지고 입가에 그림자가 생겨요.", "급한 체중 변화, 자외선, 고개를 숙이는 자세가 이 변화를 앞당길 수 있어요."], "forwho": ["턱선 경계가 흐려지고 옆모습이 둔해 보여요", "볼살이 아래로 내려와 입가가 무거워 보여요", "사진을 찍으면 얼굴이 넓고 처져 보여요", "아침보다 저녁에 얼굴이 더 피곤해 보여요"], "steps": [{"title": "탄력이 떨어지기 시작한 시기", "desc": "지지층이 아직 남아 있어, 열로 당겨 주는 관리로 유지가 수월해요."}, {"title": "경계가 흐려지고 처진 살이 보이는 시기", "desc": "깊은 층 리프팅과 피부층 탄력을 함께 보는 경우가 많아요."}, {"title": "볼륨이 함께 빠진 경우", "desc": "당기기만 하면 오히려 꺼져 보일 수 있어, 채움을 함께 상의해요."}], "methods": [{"name": "쿨소닉", "badge": "연신내점 도입", "desc": "피부 깊은 층에 초음파 열을 전달해 처진 조직을 조여요. 시원하게 식히며 진행해 통증 부담을 줄인 장비예요."}, {"name": "덴서티", "badge": "", "desc": "고주파 열로 피부층을 탄탄하게 조여 탄력을 채워요."}, {"name": "입꼬리 필러", "badge": "", "desc": "처진 입꼬리를 받쳐 인상을 가볍게 해요(진료 후 결정)."}, {"name": "올리디아 365", "badge": "연신내점 도입", "desc": "피부가 스스로 콜라겐을 만들도록 도와 꺼지고 처진 부위를 서서히 채워요."}], "recovery": [{"name": "쿨소닉", "text": "20~30분 걸리고 마취 없이 진행해요. 냉각을 함께 하며 진행해요. 붉음·붓기가 거의 없어 바로 세안·화장이 가능해요. 직후 당기는 느낌이 들고, 2~4주 뒤 탄력이 좋아져요. 보통 1회 받고 6개월~1년 유지돼서, 그 간격으로 다시 받아요. 1주일은 과음·사우나·격한 운동, 필링·스크럽을 피해 주세요."}, {"name": "덴서티", "text": "마취 크림을 바르고 20~30분 시술해요. 쿨링을 함께 해서 통증 부담이 적고 약간 따끔한 정도예요. 열감이나 붓기가 잠깐 있을 뿐 붉음이 거의 없어 시술 직후 일상 복귀와 세안·화장이 가능해요. 직후 탄탄해진 느낌이 들고 1~3개월에 걸쳐 좋아져요. 6개월 간격 반복하면 되시고, 6~12개월 유지돼요. 당일은 사우나·음주를 피하고, 열감이 오래가면 병원에 알려 주세요."}, {"name": "입꼬리 필러", "text": "마취 크림을 20~30분 바른 뒤 10~20분 시술하고, 필러에 마취 성분이 있어 약간 따끔한 정도예요. 붓기는 1~2일째 가장 심했다가 3~7일에 빠지고, 멍이 들 수 있어요. 붓기가 있어도 일상생활은 가능하고, 세안은 당일, 화장은 다음 날부터 해 주세요. 바로 모양이 보이고 2주 뒤 최종 모양을 확인해요. 입 주변은 움직임이 많아 다른 부위보다 짧게 6개월 유지돼요. 3~5일은 마사지·사우나·격한 운동·흡연을 피하고, 1~2주는 입술을 누르거나 입을 크게 벌리는 동작을 조심해 주세요."}, {"name": "올리디아 365", "text": "주사 마취를 하고 진행해서 약간 따끔한 정도이고, 붉은 기는 거의 없어 바로 일상생활이 가능해요. 시술 직후 차오른 볼륨은 한 달쯤 지나 빠지고, 그때부터 콜라겐이 조금씩 차올라요. 서서히 차기 때문에 처음 볼륨보다 부드럽고 잔잔한 느낌이에요. 보통 4주 간격으로 3회 진행하고, 1.5~2년 정도 유지돼요."}], "redflag": [], "myths": [{"q": "보톡스를 오래 맞으면 얼굴이 처진다던데 사실인가요?", "a": "독일·오스트리아에서 945명, 4천여 회 시술 기록을 분석한 연구가 있어요. 반복해서 맞아도 부작용이 쌓이는 신호는 없었고, 오히려 후반 시술에서 부작용 비율이 줄었어요. 일시적인 눈꺼풀 처짐 같은 부작용은 생길 수 있지만 대부분 가볍고 회복됐어요.", "refs": [{"label": "Rzany 외, Dermatol Surg 2007", "href": "https://pubmed.ncbi.nlm.nih.gov/17241409/"}], "cols": []}, {"q": "턱선이 무너지는 건 피부가 늘어져서만 그런 거죠?", "a": "CT로 연령대별 턱뼈를 비교한 연구에서는 나이가 들수록 턱뼈의 높이와 길이가 줄고 턱각이 벌어지는 변화가 남녀 모두에서 확인됐어요. 피부와 지방뿐 아니라 그 밑을 받치는 뼈가 달라지는 것도 아래 얼굴이 처져 보이는 데 함께 영향을 줘요. 그래서 처짐의 원인은 사람마다 달라서 진찰로 확인하는 것이 중요해요.", "refs": [{"label": "Shaw 외, Plast Reconstr Surg 2010", "href": "https://pubmed.ncbi.nlm.nih.gov/20048624/"}], "cols": []}, {"q": "담배는 폐에만 나쁘지 얼굴 처짐과는 상관없지 않나요?", "a": "흡연 습관만 다른 일란성 쌍둥이 79쌍을 비교한 연구가 있어요. 담배를 피운 쪽이 윗눈꺼풀 늘어짐, 눈 밑 지방, 팔자주름, 턱선 처짐이 더 심했어요. 흡연 기간이 5년만 차이 나도 얼굴 노화에 눈에 띄는 차이가 나타났어요.", "refs": [{"label": "Okada 외, Plast Reconstr Surg 2013", "href": "https://pubmed.ncbi.nlm.nih.gov/23924651/"}], "cols": []}], "faq": [{"q": "리프팅은 바로 효과가 보이나요?", "a": "당일 조금 조여진 느낌이 들 수 있고, 피부 속 변화는 몇 주에 걸쳐 나타나는 편이에요. 정도는 사람마다 달라요. 원장님 칼럼:리프팅은 '끌어올리는' 시술이 아닙니다 ↗"}, {"q": "쿨소닉과 덴서티는 무엇이 다른가요?", "a": "쿨소닉은 깊은 층을 당기는 데, 덴서티는 피부층을 조이는 데 초점이 있어요. 상태에 따라 하나 또는 함께 정해요. 원장님 칼럼:쿨소닉과 울쎄라, 무엇이 다른가요? ↗"}, {"q": "자주 받아야 하나요?", "a": "처음 효과를 본 뒤에는 간격을 두고 유지 관리를 하는 경우가 많아요. 간격은 상담에서 정해요."}], "habits": ["급한 체중 감량", "고개 숙인 휴대폰 자세", "자외선 누적"], "prep": ["붉거나 붓는 기간을 며칠까지 괜찮은지", "티 안 나게 조금, 또는 뚜렷한 변화 중 어느 쪽인지", "다가오는 중요한 일정이 있는지", "예전에 받아 본 시술과 그때 느낌", "상담 메이 노트를 보며 고민과 원하는 방향을 함께 확인해요.", "진료·시술 원장님이 피부를 보고 방법과 강도를 정해요.", "관리 시술 뒤 주의할 점과 다음 관리 시기를 안내해 드려요."], "columns": [{"label": "리프팅은 '끌어올리는' 시술이 아닙니다", "href": "https://www.maypureclinic.com/community/yeonsinnae/136598572"}, {"label": "쿨소닉과 울쎄라, 무엇이 다른가요?", "href": "https://www.maypureclinic.com/community/yeonsinnae/135302860"}, {"label": "피부 탄력이 달라 보일 때, 덴서티를 고민해야 하는 순간", "href": "https://www.maypureclinic.com/community/yeonsinnae/123894467"}, {"label": "필러 후 처짐, 진짜일까?", "href": "https://www.maypureclinic.com/community/yeonsinnae/121195678"}], "next": ["elasticity", "volume", "wrinkle"]}, {"slug": "elasticity", "title": "탄력", "lead": "피부가 예전처럼 쫀쫀하지 않고, 화장이 금방 무너지나요?", "cause": ["피부 탄력은 진피의 콜라겐과 탄력 섬유가 만들어요. 자외선과 나이, 수면 부족이 쌓이면 이 섬유가 줄고 얇아져 피부가 늘어지기 쉬워져요.", "탄력이 떨어지면 모공이 길어 보이고 잔주름도 함께 늘어나는 경우가 많아요."], "forwho": ["볼을 눌렀다 놓으면 돌아오는 게 느려요", "모공이 세로로 길어 보여요", "피부가 얇아지고 잔주름이 늘었어요", "얼굴선이 전체적으로 무너진 느낌이에요"], "steps": [{"title": "피부층 탄력이 떨어진 경우", "desc": "피부층을 조이고 콜라겐 생성을 돕는 방법을 봐요."}, {"title": "깊은 층까지 느슨해진 경우", "desc": "리프팅과 피부층 관리를 함께 봐요."}], "methods": [{"name": "덴서티", "badge": "", "desc": "고주파 열로 피부층을 탄탄하게 조여요."}, {"name": "쿨소닉", "badge": "연신내점 도입", "desc": "깊은 층을 당겨 전체 탄력을 보강해요."}, {"name": "포마", "badge": "", "desc": "고주파 열로 피부층 탄력을 보강해요."}, {"name": "쿼드세이", "badge": "", "desc": "니들 고주파로 피부 속 재생을 도와 탄력과 결을 함께 관리해요."}, {"name": "ECM 스킨부스터", "badge": "", "desc": "셀르디엠·리투오처럼 피부 속 지지 구조(세포 바깥 기질)를 보강하는 스킨부스터예요."}, {"name": "콜라겐토닝", "badge": "", "desc": "레이저로 콜라겐 생성을 도와 탄력과 톤을 함께 관리해요."}, {"name": "쥬베룩", "badge": "", "desc": "콜라겐 생성을 도와 결·잔주름·탄력을 서서히 개선해요."}], "recovery": [{"name": "덴서티", "text": "마취 크림을 바르고 20~30분 시술해요. 쿨링을 함께 해서 통증 부담이 적고 약간 따끔한 정도예요. 열감이나 붓기가 잠깐 있을 뿐 붉음이 거의 없어 시술 직후 일상 복귀와 세안·화장이 가능해요. 직후 탄탄해진 느낌이 들고 1~3개월에 걸쳐 좋아져요. 6개월 간격 반복하면 되시고, 6~12개월 유지돼요. 당일은 사우나·음주를 피하고, 열감이 오래가면 병원에 알려 주세요."}, {"name": "쿨소닉", "text": "20~30분 걸리고 마취 없이 진행해요. 냉각을 함께 하며 진행해요. 붉음·붓기가 거의 없어 바로 세안·화장이 가능해요. 직후 당기는 느낌이 들고, 2~4주 뒤 탄력이 좋아져요. 보통 1회 받고 6개월~1년 유지돼서, 그 간격으로 다시 받아요. 1주일은 과음·사우나·격한 운동, 필링·스크럽을 피해 주세요."}, {"name": "포마", "text": "15~20분(FX를 같이 하면 20~40분) 걸리고 보통 마취 없이 진행해요. 뜨거운 열감이 있지만 세기를 조절해서 약간 따끔한 정도예요. 붉음·열감은 몇 시간에서 며칠 가지만 바로 세안·화장이 가능해요. 직후 쫀쫀해지고 1~2개월 뒤 효과가 가장 커요. 주 1회 5회 이상 또는 2주 간격 6회 이상 받고, 이렇게 받으면 10~12개월 유지돼요. 당일은 사우나·음주를 피하고, 시술 중 너무 뜨거우면 바로 말씀해 주세요."}, {"name": "쿼드세이", "text": "마취 크림을 30~40분 바른 뒤 10~15분 시술해요. 니들 고주파라 통증은 보통 정도예요. 1~3일 붉거나 붓고 작은 딱지가 생길 수 있어요. 세안은 다음 날부터 순하게, 화장은 1~2일 뒤부터 해 주세요. 2~4주 뒤부터 모공과 결이 좋아지고 3회쯤 뚜렷해져요. 4~6주 간격으로 3~5회 받고 6개월~1년 유지돼요. 3~5일은 사우나·음주·격한 운동을 피해 주세요."}, {"name": "ECM 스킨부스터", "text": "셀르디엠·리투오 모두 마취 크림을 20~40분 바른 뒤 15~30분 주입해요. 약간 따끔하고, 입가·코 주변은 조금 더 아파요. 입자가 작아 오돌토돌하게 올라오는 게 적고, 붉음·주사 자국은 반나절~하루, 붓기·작은 멍은 1~3일 가요. 세안은 당일, 화장은 다음 날부터 가능해요. 1~4주 뒤 결과 촉촉함이 달라지고, 1~3개월에 걸쳐 밀도와 탄력이 좋아져요. 4주 간격으로 5회 이상 권하고, 여러 회 받으면 6~12개월 유지돼요. 2~3일(길게 1주)은 사우나·음주·격한 운동을, 1주일은 강한 필링을 피해 주세요."}, {"name": "콜라겐토닝", "text": "10~15분 걸리고 마취가 필요 없어요. 통증이 거의 없고 붉음도 잠깐이라 당일 세안·화장이 가능해요. 1주 간격으로 10회 이상 받고, 4~5회쯤부터 톤과 탄력이 달라지기 시작해요. 이후에는 1~3개월마다 유지 관리를 해요. 자외선 차단을 꼼꼼히 하고 당일은 사우나·스크럽을 피해 주세요."}, {"name": "쥬베룩", "text": "마취 크림을 20~30분 바른 뒤 20~40분 주입해요. 통증은 보통 정도예요. 주사 자리와 붓기, 알갱이 같은 느낌이 1~3일 가고, 볼·눈가는 멍이 3~7일 갈 수 있어요. 세안은 당일, 화장은 다음 날부터 해 주세요. 4~8주 뒤부터 결과 탄력이 달라지고 3~6개월에 걸쳐 효과가 쌓여요. 4주 간격으로 2~3회 받고 12~18개월 유지돼요. 1~2주는 사우나·찜질방·음주·격한 운동을 피해 주세요. 쿼드세이와 함께 받을 수 있어요."}], "redflag": [], "myths": [{"q": "필러는 빈 곳을 채우기만 하는 거지, 피부 자체가 좋아지진 않죠?", "a": "광노화된 피부에 히알루론산 필러를 주사하고 조직을 검사한 연구에서, 필러 주변에 새로운 콜라겐이 만들어지는 현상이 4주와 13주에 확인됐어요. 연구진은 필러가 진피를 늘려 섬유아세포를 자극하기 때문일 것으로 봤어요. 다만 소규모 연구여서 탄력 개선 정도를 직접 잰 것은 아니에요.", "refs": [{"label": "Wang 외, Arch Dermatol 2007", "href": "https://pubmed.ncbi.nlm.nih.gov/17309996/"}], "cols": []}, {"q": "콜라겐을 먹으면 피부 탄력이 좋아지나요?", "a": "무작위대조시험 23개를 모아 분석해 보니 전체로는 효과가 있는 것처럼 나왔어요. 그런데 업체 지원을 받지 않은 연구와 질 높은 연구만 따로 보면 보습·탄력·주름 개선 효과가 확인되지 않았어요. 현재로서는 먹는 콜라겐이 피부 노화를 막는다는 근거가 충분하지 않아요.", "refs": [{"label": "Myung 외, Am J Med 2025", "href": "https://pubmed.ncbi.nlm.nih.gov/40324552/"}], "cols": []}, {"q": "초음파 리프팅을 받으면 나중에 피부가 더 처진다던데요?", "a": "한국인 22명을 대상으로 한 연구에서는 초음파 리프팅 시술 2개월 뒤 조직검사에서 진피 콜라겐이 늘고 탄력섬유가 곧게 정돈된 모습이 관찰됐어요. 시술 때문에 나중에 더 처진다는 근거는 이 연구에서 확인되지 않았어요. 효과와 지속 기간에는 개인차가 있으니 시술 여부는 의료진과 상의해 정하시면 돼요.", "refs": [{"label": "Suh 외, Dermatol Surg 2011", "href": "https://pubmed.ncbi.nlm.nih.gov/21806707/"}], "cols": [{"label": "리프팅은 '끌어올리는' 시술이 아닙니다", "href": "https://www.maypureclinic.com/community/yeonsinnae/136598572"}]}], "faq": [{"q": "탄력 관리는 몇 살부터 하는 게 좋나요?", "a": "나이보다 피부 상태가 기준이에요. 탄력이 떨어지기 시작했다고 느낄 때 상담해 보시면 좋아요. 원장님 칼럼:나이 들어 보이는 건 '주름' 때문이 아닙니다 — 피부 밀도 ↗"}, {"q": "집에서 할 수 있는 관리도 있나요?", "a": "자외선 차단과 충분한 수면, 급한 체중 감량을 피하는 것이 기본이에요."}], "habits": ["급한 체중 감량", "수면 부족", "자외선 누적"], "prep": ["붉거나 붓는 기간을 며칠까지 괜찮은지", "티 안 나게 조금, 또는 뚜렷한 변화 중 어느 쪽인지", "다가오는 중요한 일정이 있는지", "예전에 받아 본 시술과 그때 느낌", "상담 메이 노트를 보며 고민과 원하는 방향을 함께 확인해요.", "진료·시술 원장님이 피부를 보고 방법과 강도를 정해요.", "관리 시술 뒤 주의할 점과 다음 관리 시기를 안내해 드려요."], "columns": [{"label": "나이 들어 보이는 건 '주름' 때문이 아닙니다 — 피부 밀도", "href": "https://www.maypureclinic.com/community/yeonsinnae/136760563"}, {"label": "리프팅은 '끌어올리는' 시술이 아닙니다", "href": "https://www.maypureclinic.com/community/yeonsinnae/136598572"}, {"label": "피부 탄력이 달라 보일 때, 덴서티를 고민해야 하는 순간", "href": "https://www.maypureclinic.com/community/yeonsinnae/123894467"}], "next": ["sagging", "wrinkle", "texture"]}, {"slug": "volume", "title": "꺼짐", "lead": "눈밑이나 볼이 꺼져서 피곤해 보인다는 말을 자주 들으시나요?", "cause": ["나이가 들며 얼굴 뼈가 조금씩 줄고 피부 아래 지방도 얇아져요. 받쳐 주던 부피가 줄면 그 자리에 그늘이 생기고 꺼져 보여요.", "급한 다이어트나 수면 부족은 그늘을 더 짙어 보이게 해요."], "forwho": ["눈밑이 꺼져 그늘이 져요", "관자나 볼이 꺼져 얼굴이 야위어 보여요", "팔자 주변이 꺼져 그림자가 생겨요", "화장으로 가려지지 않는 그늘이 있어요"], "steps": [{"title": "눈밑처럼 얇은 부위", "desc": "과하게 채우기보다 수분을 끌어당기는 주사로 은은하게 채워요."}, {"title": "자연스럽게 조금 채우고 싶을 때", "desc": "내 피부가 콜라겐을 만들도록 도와 시간을 두고 차오르게 해요."}, {"title": "팔자 주변 그늘", "desc": "팔자 선처럼 보여도 볼 앞쪽이 꺼진 그늘인 경우가 많아요. 필러보다 힐로웨이브·올리디아 365로 자연스럽게 채우는 방법을 먼저 봐요."}, {"title": "모양을 바로 잡고 싶을 때", "desc": "필러로 꺼진 모양을 직접 채워요(진료 후 결정)."}], "methods": [{"name": "힐로웨이브", "badge": "연신내점 도입", "desc": "고분자·저분자 히알루론산으로 꺼진 부위를 자연스럽게 채우고 수분감을 더해요."}, {"name": "올리디아 365", "badge": "연신내점 도입", "desc": "피부가 스스로 콜라겐을 만들도록 도와 서서히 볼륨이 차오르게 해요."}, {"name": "부위 필러", "badge": "", "desc": "꺼진 부위의 모양을 직접 채워요."}], "recovery": [{"name": "힐로웨이브", "text": "주사 마취를 하고 진행해서 약간 따끔한 정도예요. 바로 일상생활이 가능하고, 붉은 기는 1~2주 정도 갈 수 있어요. 효과는 바로 보이기 시작해요. 1회 시술하면 3~4개월 유지되고, 3개월 간격으로 3회 받으시면 1년 정도 좋은 상태가 유지돼요."}, {"name": "올리디아 365", "text": "주사 마취를 하고 진행해서 약간 따끔한 정도이고, 붉은 기는 거의 없어 바로 일상생활이 가능해요. 시술 직후 차오른 볼륨은 한 달쯤 지나 빠지고, 그때부터 콜라겐이 조금씩 차올라요. 서서히 차기 때문에 처음 볼륨보다 부드럽고 잔잔한 느낌이에요. 보통 4주 간격으로 3회 진행하고, 1.5~2년 정도 유지돼요."}, {"name": "부위 필러", "text": "마취 크림을 20~30분 바른 뒤 10~20분 시술하고, 필러에 마취 성분이 있어 약간 따끔한 정도예요. 바로 모양이 보여요. 붓기는 3~5일(잔붓기 1~2주) 가고 멍이 들 수 있지만 바로 일상생활이 가능하고, 세안은 당일, 화장은 다음 날부터 해 주세요. 보통 1회 받고, 부위와 제품에 따라 6개월~2년(이마·턱끝은 12~18개월) 유지돼요. 1~2주는 음주·사우나를 피하고 시술 부위를 누르거나 만지지 마세요."}], "redflag": ["필러를 맞은 뒤 피부가 하얗게 질리거나 심하게 아프고 색이 변하면 즉시 병원에 연락하세요."], "myths": [{"q": "얼굴 운동(페이스 요가)으로 꺼진 볼이 채워질 수 있나요?", "a": "중년 여성이 20주 동안 얼굴 운동을 한 소규모 연구에서 윗볼·아랫볼 볼륨이 개선됐고, 평가자가 추정한 나이가 평균 약 3년 젊게 나왔어요. 다만 끝까지 마친 사람이 16명뿐이고 비교 그룹도 없어서 '약간의 개선 가능성' 정도로 해석해야 해요. 매일 30분씩 꾸준히 해야 했다는 점도 참고하세요.", "refs": [{"label": "Alam 외, JAMA Dermatol 2018", "href": "https://pubmed.ncbi.nlm.nih.gov/29299598/"}], "cols": []}, {"q": "볼이 꺼지는 건 그냥 살이 빠져서 그런 거죠?", "a": "CT 연구에서는 나이가 들면서 볼 지방이 전체적으로 줄기보다 아래쪽으로 이동하고, 지방 덩어리 안에서도 부피가 아래로 쏠리는 변화가 관찰됐어요. 특히 깊은 안쪽 볼 지방이 줄어드는 것이 꺼져 보이는 데 영향을 줘요. 그래서 위쪽은 꺼지고 아래쪽은 무거워 보이는 일이 함께 생길 수 있어요.", "refs": [{"label": "Gierloff 외, Plast Reconstr Surg 2012", "href": "https://pubmed.ncbi.nlm.nih.gov/21915077/"}], "cols": [{"label": "팔자주름은 '주름'이 아닙니다", "href": "https://www.maypureclinic.com/community/yeonsinnae/136228297"}]}, {"q": "나이 들수록 마른 게 더 젊어 보이지 않나요?", "a": "일란성 쌍둥이 186쌍을 비교한 연구가 있어요. 40세 이전에는 체질량지수(BMI)가 더 높은 쪽이 나이 들어 보였지만, 40세 이후에는 오히려 더 젊어 보였어요. 나이가 들면 얼굴 볼륨이 젊어 보이는 데 중요해질 수 있다는 뜻이고, 건강을 위한 적정 체중과는 따로 생각해야 해요.", "refs": [{"label": "Guyuron 외, Plast Reconstr Surg 2009", "href": "https://pubmed.ncbi.nlm.nih.gov/19337100/"}], "cols": []}], "faq": [{"q": "어색해 보이지 않을까요?", "a": "얇은 부위는 적은 양으로 나눠 채우는 경우가 많아요. 원하는 정도를 상담에서 함께 정해요."}], "habits": ["급한 다이어트", "수면 부족(그늘이 짙어 보임)"], "prep": ["붉거나 붓는 기간을 며칠까지 괜찮은지", "티 안 나게 조금, 또는 뚜렷한 변화 중 어느 쪽인지", "다가오는 중요한 일정이 있는지", "예전에 받아 본 시술과 그때 느낌", "상담 메이 노트를 보며 고민과 원하는 방향을 함께 확인해요.", "진료·시술 원장님이 피부를 보고 방법과 강도를 정해요.", "관리 시술 뒤 주의할 점과 다음 관리 시기를 안내해 드려요."], "columns": [{"label": "다크서클은 한 종류가 아닙니다", "href": "https://www.maypureclinic.com/community/yeonsinnae/136431866"}, {"label": "팔자주름은 '주름'이 아닙니다", "href": "https://www.maypureclinic.com/community/yeonsinnae/136228297"}, {"label": "필러 후 처짐, 진짜일까?", "href": "https://www.maypureclinic.com/community/yeonsinnae/121195678"}], "next": ["wrinkle", "sagging", "elasticity"]}, {"slug": "redness", "title": "붉음·홍조", "lead": "얼굴이 쉽게 달아오르고, 붉은 기가 오래 가거나 실핏줄이 보이나요?", "cause": ["얼굴 혈관이 쉽게 늘어나거나, 피부 장벽이 약해 자극에 예민해지면 붉은 기가 오래 남아요. 늘어난 혈관이 그대로 자리 잡으면 실핏줄로 보여요.", "뜨거운 물, 사우나, 음주, 매운 음식, 과한 각질 정리가 붉음을 심하게 만들 수 있어요. 로사케아처럼 진료가 필요한 경우도 있어요."], "forwho": ["온도 차이에 얼굴이 쉽게 빨개져요", "볼·코의 붉은 기가 오래 가요", "볼에 가는 실핏줄이 보여요", "화끈거리거나 따가울 때가 있어요"], "steps": [{"title": "전체가 붉은 경우", "desc": "원인을 먼저 진료하고, 자극을 줄이며 붉은 기를 안정시켜요."}, {"title": "실핏줄이 보이는 경우", "desc": "보이는 혈관에 작용하는 빛으로 정리해요."}, {"title": "화끈거림·붉은 뾰루지가 함께 있는 경우", "desc": "로사케아처럼 진료가 필요한 붉음일 수 있어요. 원장님이 먼저 원인을 확인하고, 자극을 줄이는 관리부터 시작해요. 레이저는 원인을 확인한 뒤에 정해요."}], "methods": [{"name": "클라리티 홍조", "badge": "", "desc": "붉은 기에 작용하는 레이저로 안정시켜요."}, {"name": "클라리티 혈관", "badge": "", "desc": "늘어난 혈관을 정리해요."}, {"name": "LDM", "badge": "", "desc": "초음파로 진정과 재생을 도와요."}], "recovery": [{"name": "클라리티 홍조", "text": "10~15분(넓으면 30분) 걸리고, 보통 마취 없이 고무줄로 튕기는 듯 약간 따끔해요. 예민하면 마취 크림을 발라요. 붉음과 열감은 반나절~하루, 길면 1~2일 가지만 바로 일상생활과 세안·화장이 가능해요. 3~4주 간격으로 3~5회 받고, 2~3회차부터 옅어지는 게 보여요. 몇 달 유지되고, 다시 붉어지는 걸 막으려면 1~3개월 간격으로 유지 관리를 해요. 1주일은 사우나·찜질방·뜨거운 목욕을 피하고, 당일과 다음 날은 술을 피해 주세요."}, {"name": "클라리티 혈관", "text": "10~20분 걸리고 보통 마취 없이 진행해요. 홍조보다 강도가 세서 따끔한 정도가 조금 더해요. 1~2일 붉거나 붓고, 굵은 혈관은 1~2주 멍이 들 수 있어요. 바로 일상생활이 가능하고 멍은 화장으로 가리시면 돼요. 직후부터 2주 사이에 혈관이 흐려지거나 사라지고, 4~6주 간격으로 1~3회 받아요. 치료한 혈관은 오래가지만 새 실핏줄은 생길 수 있어요. 3~5일은 사우나·음주·격한 운동을 피해 주세요."}, {"name": "LDM", "text": "10~20분 걸리고 마취가 필요 없어요. 통증은 거의 없고, 붉음도 거의 없어 바로 세안·화장이 가능해요. 직후에 촉촉해지고 붓기가 가라앉는 느낌이 들고, 탄력은 횟수가 쌓이며 좋아져요. 주 2회(3일 간격도 가능) 기본 10회를 권하고, 10회 이상 받으시면 6개월~1년 유지돼요(개인차). 여드름 피부는 초반 3회 정도 트러블이 늘 수 있어요."}], "redflag": ["붉어질 때 화끈거리거나 따갑고 붉은 뾰루지가 같이 나면 진료가 먼저예요."], "myths": [{"q": "술은 조금만 마시면 홍조와 상관없지 않나요?", "a": "미국 여성 약 8만 명을 14년 동안 지켜본 연구에서, 술을 많이 마실수록 주사(로사케아) 진단 위험이 높았고, 하루 술 반 잔도 안 되는 적은 양에서도 위험이 조금 높게 나왔어요. 특히 화이트와인과 독한 술과의 관련이 뚜렷했어요. 다만 관찰 연구라 술이 직접적인 원인이라고 단정할 수는 없어요.", "refs": [{"label": "Li 외, J Am Acad Dermatol 2017", "href": "https://pubmed.ncbi.nlm.nih.gov/28434611/"}], "cols": []}, {"q": "홍조는 그냥 피부가 얇아서 생기는 거 아닌가요?", "a": "주사(로사케아)는 단순히 피부가 얇아서 생긴다기보다 여러 요인이 관여하는 피부 질환이에요. 23개 연구를 모은 분석에서 주사가 있는 사람은 없는 사람보다 모낭충(데모덱스)이 발견될 가능성이 약 9배 높았고, 붉은 기 위주 유형에서도 모낭충이 더 많았어요. 다만 모낭충이 원인인지 결과인지는 아직 밝혀지지 않았어요.", "refs": [{"label": "Chang 외, J Am Acad Dermatol 2017", "href": "https://pubmed.ncbi.nlm.nih.gov/28711190/"}], "cols": []}, {"q": "레이저로 실핏줄을 없애면 다시 안 생기나요?", "a": "레이저로 얼굴 실핏줄이 깨끗해진 484명을 살펴본 연구에서, 깨끗한 상태가 계속 유지된 사람은 여성 약 24%, 남성 약 15%였어요. 다시 생기는 데에는 여성은 태닝을 자주 하는 습관, 남성은 고혈압이 관련 있었어요. 그래서 치료 뒤에도 생활 습관이 영향을 줄 수 있고, 개인차가 있어요.", "refs": [{"label": "Guida 외, J Eur Acad Dermatol Venereol 2017", "href": "https://pubmed.ncbi.nlm.nih.gov/27987316/"}], "cols": []}], "faq": [{"q": "붉을 때 집에서 조심할 건 뭐가 있나요?", "a": "뜨거운 물·사우나, 음주, 맵고 뜨거운 음식, 강한 각질 정리를 줄이고, 순한 보습과 자외선 차단을 꾸준히 해 주세요. 어떤 때 심해지는지 기억해 두시면 진료에 큰 도움이 돼요."}, {"q": "홍조는 왜 진료가 먼저인가요?", "a": "로사케아나 피부염처럼 원인이 따로 있는 경우가 있어서, 원장님이 먼저 확인해요."}], "habits": ["뜨거운 물 세안·사우나", "음주·매운 음식", "각질 정리제 과다"], "prep": ["붉거나 붓는 기간을 며칠까지 괜찮은지", "티 안 나게 조금, 또는 뚜렷한 변화 중 어느 쪽인지", "다가오는 중요한 일정이 있는지", "예전에 받아 본 시술과 그때 느낌", "상담 메이 노트를 보며 고민과 원하는 방향을 함께 확인해요.", "진료·시술 원장님이 피부를 보고 방법과 강도를 정해요.", "관리 시술 뒤 주의할 점과 다음 관리 시기를 안내해 드려요."], "columns": [], "next": ["dry", "pigment", "texture"]}, {"slug": "dry", "title": "건조함", "lead": "세안 후 얼굴이 당기고, 화장이 들뜨고 각질이 일어나나요?", "cause": ["피부 맨 바깥에는 수분이 빠져나가지 않게 막아 주는 보호막(피부 장벽)이 있어요. 이 장벽이 약해지면 수분이 쉽게 날아가 당기고 각질이 일어나요.", "뜨거운 물 세안, 세안 후 늦은 보습, 난방, 나이에 따른 피지 감소가 장벽을 약하게 만들어요. 건조가 이어지면 잔주름이 더 도드라져 보여요."], "forwho": ["세안 후 바로 당겨요", "화장이 뜨고 각질이 일어나요", "피부가 푸석하고 윤기가 없어요", "잔주름이 예전보다 잘 보여요"], "steps": [{"title": "당김이 불편한 경우", "desc": "속 수분을 채우는 부스터를 간격 두고 해요."}, {"title": "윤기·결이 아쉬운 경우", "desc": "피부결과 윤기에 작용하는 부스터를 함께 봐요."}], "methods": [{"name": "비타란", "badge": "", "desc": "PN 성분 스킨부스터로 피부 재생과 속 수분을 도와요."}, {"name": "리비샤인", "badge": "", "desc": "히알루론산 부스터로 수분감을 채워요."}, {"name": "쿼드세이 퓨전", "badge": "", "desc": "피부결을 정돈하면서 부스터를 함께 넣어요."}], "recovery": [{"name": "비타란", "text": "마취 크림을 바르고 진행해서 마취까지 40~60분 걸려요. 약간 따끔할 수 있어요. 주사 자리가 오돌토돌하게 올라오는 것은 반나절~하루, 붉음·작은 멍은 2~3일 갈 수 있어요. 세안은 당일 저녁 가볍게, 화장은 다음 날부터 가능해요. 2~4주 간격으로 3회 이상 받으시고, 2~4주 뒤부터 결과 광이 달라져 2~3회차쯤부터 느끼는 경우가 많아요(개인차가 있어요). 3회 기준 6개월 안팎 유지돼요. 3~5일은 사우나·음주·격한 운동을 피해 주세요."}, {"name": "리비샤인", "text": "마취 크림을 바르고 진행해서 마취까지 30~50분 걸려요. 인체유사 펩타이드라 약간 따끔한 정도로 통증이 적은 편이에요. 주사 자리가 반나절~하루 오돌토돌하고 1~2일 붉을 수 있어요. 화장은 다음 날부터 가능해요. 2~4주 간격으로 3회 이상 받으시고, 2~4주 뒤부터 변화가 보여 4~6개월 유지돼요. 2~3일은 사우나·음주를 피해 주세요."}, {"name": "쿼드세이 퓨전", "text": "마취 크림을 30~40분 바른 뒤 15~30분 시술해요. 니들 고주파라 통증은 보통 정도인데, 예열 방식으로 진행해요. 당일~하루 붉고, 미세한 바늘 자국과 붓기는 1~3일 갈 수 있어요. 세안은 당일 저녁 가볍게, 화장은 다음 날부터 가능해요. 직후 결이 좋아지고 4~6주에 걸쳐 콜라겐이 차올라요. 4주 간격 3~5회를 권하고 6개월~1년 유지돼요. 1주일은 사우나·음주·각질 정리를 피하고 자외선 차단을 챙겨 주세요."}], "redflag": ["가렵고 붉은 반점이 번지거나 진물이 나면 습진·피부염일 수 있어 진료가 먼저예요."], "myths": [{"q": "물을 많이 마시면 피부 건조가 해결되나요?", "a": "관련 연구를 모아 본 결과, 물을 더 마시면 피부 겉층 수분이 조금 늘 수 있다는 결과가 있었지만, 연구가 6편뿐이고 근거가 약했어요. 그 효과도 주로 평소 물을 적게 마시던 사람에게서 보였어요. 물만 많이 마신다고 건조함이 해결된다고 기대하기는 어렵고, 더 연구가 필요해요.", "refs": [{"label": "Akdeniz 외, Skin Res Technol 2018", "href": "https://pubmed.ncbi.nlm.nih.gov/29392767/"}], "cols": []}, {"q": "뜨거운 물로 씻으면 피부가 더 촉촉해지지 않나요?", "a": "건강한 성인 50명의 손을 물에 담가 본 연구에서, 뜨거운 물에 담근 뒤 피부 속 수분이 날아가는 정도가 두 배 넘게 늘었고 붉은 기도 늘었어요. 찬물도 피부 장벽에 영향을 줬지만 뜨거운 물이 더 해로웠어요. 연구진은 미지근하거나 시원한 물로 씻기를 권했어요.", "refs": [{"label": "Herrero-Fernandez 외, J Clin Med 2022", "href": "https://pubmed.ncbi.nlm.nih.gov/35053992/"}], "cols": []}, {"q": "보습제는 아무거나 발라도 피부 장벽이 좋아지나요?", "a": "보습제 연구를 정리한 리뷰에 따르면, 바른 뒤 건조한 느낌은 줄었는데도 피부 장벽 기능은 그대로이거나 오히려 나빠진 경우가 있었어요. 반대로 장벽을 좋아지게 한 보습제도 있어, 성분 구성에 따라 결과가 달랐어요. 그래서 보습제는 내 피부에 맞는 것을 고르는 게 중요하고, 개인차가 있어요.", "refs": [{"label": "Lodén, Clin Dermatol 2012", "href": "https://pubmed.ncbi.nlm.nih.gov/22507043/"}], "cols": []}], "faq": [{"q": "보습제를 발라도 금방 건조해요.", "a": "장벽이 약하면 바르는 것만으로 부족할 수 있어요. 세안 습관을 함께 바꾸고 필요하면 부스터를 더해요."}, {"q": "부스터는 몇 번 받아야 하나요?", "a": "보통 간격을 두고 몇 회 받는 경우가 많아요. 횟수는 피부 상태를 보고 정해요."}], "habits": ["뜨거운 물 세안", "세안 후 보습이 늦음", "난방 켠 실내"], "prep": ["붉거나 붓는 기간을 며칠까지 괜찮은지", "티 안 나게 조금, 또는 뚜렷한 변화 중 어느 쪽인지", "다가오는 중요한 일정이 있는지", "예전에 받아 본 시술과 그때 느낌", "상담 메이 노트를 보며 고민과 원하는 방향을 함께 확인해요.", "진료·시술 원장님이 피부를 보고 방법과 강도를 정해요.", "관리 시술 뒤 주의할 점과 다음 관리 시기를 안내해 드려요."], "columns": [], "next": ["texture", "redness", "pore"]}, {"slug": "texture", "title": "피부결", "lead": "피부가 거칠고 고르지 않아, 화장이 매끈하게 먹지 않나요?", "cause": ["각질이 고르게 떨어지지 않거나, 자외선과 나이로 피부 재생이 느려지면 표면이 거칠고 고르지 않게 보여요.", "과한 각질 정리와 늦은 보습은 오히려 결을 더 거칠게 만들 수 있어요."], "forwho": ["만지면 거칠고 오돌토돌해요", "빛을 비추면 피부가 고르지 않아 보여요", "화장이 매끈하게 먹지 않아요"], "steps": [{"title": "건조와 함께 거친 경우", "desc": "수분과 재생을 돕는 부스터를 봐요."}, {"title": "모공·요철과 함께 거친 경우", "desc": "결을 정돈하는 시술을 함께 봐요."}], "methods": [{"name": "비타란", "badge": "", "desc": "피부 재생을 도와 결과 윤기를 개선해요."}, {"name": "리비힐 스킨부스터", "badge": "", "desc": "피부결과 윤기를 채우는 스킨부스터예요."}, {"name": "쿼드세이 퓨전", "badge": "", "desc": "결을 정돈하면서 부스터를 함께 넣어요."}, {"name": "쥬베룩", "badge": "", "desc": "콜라겐 생성을 도와 결을 서서히 정돈해요."}], "recovery": [{"name": "비타란", "text": "마취 크림을 바르고 진행해서 마취까지 40~60분 걸려요. 약간 따끔할 수 있어요. 주사 자리가 오돌토돌하게 올라오는 것은 반나절~하루, 붉음·작은 멍은 2~3일 갈 수 있어요. 세안은 당일 저녁 가볍게, 화장은 다음 날부터 가능해요. 2~4주 간격으로 3회 이상 받으시고, 2~4주 뒤부터 결과 광이 달라져 2~3회차쯤부터 느끼는 경우가 많아요(개인차가 있어요). 3회 기준 6개월 안팎 유지돼요. 3~5일은 사우나·음주·격한 운동을 피해 주세요."}, {"name": "리비힐 스킨부스터", "text": "마취 크림을 바르고 진행해서 마취까지 30~50분 걸려요. 인체유사 펩타이드라 약간 따끔한 정도로 통증이 적은 편이에요. 주사 자리가 반나절~하루 오돌토돌하고, 붉음·작은 멍이 1~3일 갈 수 있어요. 화장은 다음 날부터 가능해요. 2~4주 간격으로 3회 이상 받으시고, 2~4주 뒤부터 변화가 보여 4~6개월 유지돼요. 2~3일은 사우나·음주를 피해 주세요."}, {"name": "쿼드세이 퓨전", "text": "마취 크림을 30~40분 바른 뒤 15~30분 시술해요. 니들 고주파라 통증은 보통 정도인데, 예열 방식으로 진행해요. 당일~하루 붉고, 미세한 바늘 자국과 붓기는 1~3일 갈 수 있어요. 세안은 당일 저녁 가볍게, 화장은 다음 날부터 가능해요. 직후 결이 좋아지고 4~6주에 걸쳐 콜라겐이 차올라요. 4주 간격 3~5회를 권하고 6개월~1년 유지돼요. 1주일은 사우나·음주·각질 정리를 피하고 자외선 차단을 챙겨 주세요."}, {"name": "쥬베룩", "text": "마취 크림을 20~30분 바른 뒤 20~40분 주입해요. 통증은 보통 정도예요. 주사 자리와 붓기, 알갱이 같은 느낌이 1~3일 가고, 볼·눈가는 멍이 3~7일 갈 수 있어요. 세안은 당일, 화장은 다음 날부터 해 주세요. 4~8주 뒤부터 결과 탄력이 달라지고 3~6개월에 걸쳐 효과가 쌓여요. 4주 간격으로 2~3회 받고 12~18개월 유지돼요. 1~2주는 사우나·찜질방·음주·격한 운동을 피해 주세요. 쿼드세이와 함께 받을 수 있어요."}], "redflag": [], "myths": [{"q": "자외선차단제는 외출할 때만 바르면 되지 않나요?", "a": "호주 성인 903명을 4년 넘게 지켜본 무작위 연구에서, 차단제를 매일 바른 그룹은 피부 표면의 결로 측정한 피부 노화가 눈에 띄게 진행되지 않았어요. 필요할 때만 바른 그룹보다 노화가 약 24% 적었어요. 같은 연구에서 베타카로틴 영양제는 전체적으로 효과가 없었어요.", "refs": [{"label": "Hughes 외, Ann Intern Med 2013", "href": "https://pubmed.ncbi.nlm.nih.gov/23732711/"}], "cols": []}, {"q": "각질 정리제를 쓰는 동안에도 햇볕은 평소처럼 쬐어도 되나요?", "a": "AHA 성분의 하나인 10% 글리콜산을 4주 동안 바른 피부는 자외선에 더 쉽게 손상되는 것으로 나타났어요. 이렇게 예민해진 상태는 사용을 멈추고 일주일 뒤에는 원래대로 돌아왔어요. 산 성분 각질 정리제를 쓰는 동안에는 자외선 차단을 더 신경 쓰는 게 좋아요.", "refs": [{"label": "Kaidbey 외, Photodermatol Photoimmunol Photomed 2003", "href": "https://pubmed.ncbi.nlm.nih.gov/12713551/"}], "cols": []}, {"q": "레티놀은 바르면 금방 효과가 보이나요?", "a": "평균 87세 어르신 36명의 한쪽 팔에 레티놀을 24주 동안 바른 연구에서, 바르지 않은 쪽보다 잔주름이 의미 있게 줄고 콜라겐 관련 지표도 늘었어요. 즉 효과를 확인하는 데 몇 달이 걸렸어요. 얼굴 피부결을 직접 본 연구는 아니어서 개인차가 있어요.", "refs": [{"label": "Kafi 외, Arch Dermatol 2007", "href": "https://pubmed.ncbi.nlm.nih.gov/17515510/"}], "cols": []}], "faq": [{"q": "각질 정리를 자주 하면 좋아지나요?", "a": "너무 자주 하면 장벽이 약해져 오히려 거칠어질 수 있어요. 횟수를 줄이고 보습을 챙기는 것이 좋아요."}], "habits": ["각질 정리 과다", "세안 후 보습이 늦음"], "prep": ["붉거나 붓는 기간을 며칠까지 괜찮은지", "티 안 나게 조금, 또는 뚜렷한 변화 중 어느 쪽인지", "다가오는 중요한 일정이 있는지", "예전에 받아 본 시술과 그때 느낌", "상담 메이 노트를 보며 고민과 원하는 방향을 함께 확인해요.", "진료·시술 원장님이 피부를 보고 방법과 강도를 정해요.", "관리 시술 뒤 주의할 점과 다음 관리 시기를 안내해 드려요."], "columns": [], "next": ["pore", "dry", "scar"]}, {"slug": "pore", "title": "모공", "lead": "코와 볼의 모공이 넓어 보이고, 화장이 모공에 끼나요?", "cause": ["피지가 많이 나오면 모공 입구가 넓어져요. 여기에 탄력이 떨어지면 모공 주변 피부가 아래로 늘어져 세로로 길고 크게 보여요.", "과한 스크럽이나 피지 짜내기, 자외선은 모공 주변 피부를 약하게 만들어요."], "forwho": ["코·볼 모공이 둥글게 넓어 보여요", "모공이 세로로 길어 보여요", "피지가 많고 번들거려요", "화장이 모공에 끼어요"], "steps": [{"title": "피지 때문에 넓어진 모공", "desc": "피지와 모공 주변 재생을 함께 봐요."}, {"title": "탄력 저하로 늘어진 모공", "desc": "탄력 관리와 함께 해야 효과가 오래가요."}], "methods": [{"name": "피코프락셀", "badge": "", "desc": "모공 주변에 미세한 재생을 일으켜 결을 정돈해요."}, {"name": "쿼드세이", "badge": "", "desc": "니들 고주파로 모공과 결을 개선해요."}, {"name": "CO2 프락셀", "badge": "", "desc": "미세한 레이저 구멍으로 깊은 층 재생을 일으켜 늘어진 모공을 정돈해요. 회복 기간은 7일 정도예요."}, {"name": "쥬베룩", "badge": "", "desc": "콜라겐 생성을 도와 모공 주변을 단단하게 해요."}], "recovery": [{"name": "피코프락셀", "text": "마취 크림을 30분 바른 뒤 10~20분 시술해요. 톡톡 튕기는 느낌으로 약간 따끔해요. 3~5일 붉고, 모래알 같은 작은 딱지가 2~5일 생겼다가 대부분 1주 안에 정리돼요. 세안은 당일 순하게, 가벼운 화장은 다음 날부터 가능해요. 모공은 2주, 흉터는 2~4주 간격으로 받고, 흉터는 3~5회 이상 쌓여야 좋아져요. 1주일은 사우나·과음·각질 정리를 피해 주세요."}, {"name": "쿼드세이", "text": "마취 크림을 30~40분 바른 뒤 10~15분 시술해요. 니들 고주파라 통증은 보통 정도예요. 1~3일 붉거나 붓고 작은 딱지가 생길 수 있어요. 세안은 다음 날부터 순하게, 화장은 1~2일 뒤부터 해 주세요. 2~4주 뒤부터 모공과 결이 좋아지고 3회쯤 뚜렷해져요. 4~6주 간격으로 3~5회 받고 6개월~1년 유지돼요. 3~5일은 사우나·음주·격한 운동을 피해 주세요."}, {"name": "CO2 프락셀", "text": "마취 크림을 30~40분 바른 뒤 15~30분 시술해요. 마취 후에도 뜨겁고 따가운 편이라 통증이 꽤 있어요. 붓기는 2~3일, 딱지는 5~10일, 붉은 기는 2~4주(길면 1~3개월) 가요. 세안은 다음 날부터 미온수로 가볍게, 화장은 딱지가 떨어지는 5~7일 뒤부터 해 주세요. 일상 복귀는 7일 정도로 봐요. 딱지가 떨어진 뒤 결은 빨리 좋아지고, 흉터는 1~3개월에 걸쳐 차올라요. 4~8주 간격 3~5회를 받고, 좋아진 흉터는 오래 유지돼요. 딱지는 억지로 떼지 말고 재생 크림·보습을 챙기며, 색소침착을 막기 위해 4주 이상 자외선 차단을 꼼꼼히 해 주세요."}, {"name": "쥬베룩", "text": "마취 크림을 20~30분 바른 뒤 20~40분 주입해요. 통증은 보통 정도예요. 주사 자리와 붓기, 알갱이 같은 느낌이 1~3일 가고, 볼·눈가는 멍이 3~7일 갈 수 있어요. 세안은 당일, 화장은 다음 날부터 해 주세요. 4~8주 뒤부터 결과 탄력이 달라지고 3~6개월에 걸쳐 효과가 쌓여요. 4주 간격으로 2~3회 받고 12~18개월 유지돼요. 1~2주는 사우나·찜질방·음주·격한 운동을 피해 주세요. 쿼드세이와 함께 받을 수 있어요."}], "redflag": [], "myths": [{"q": "뜨거운 물로 모공을 열고 찬물로 닫을 수 있나요?", "a": "모공은 문처럼 열렸다 닫혔다 하는 구조가 아니에요. 연구에서는 눈에 띄는 모공 주변의 피부 표면과 그 아래 진피 구조가 함께 변해 있었고, 나이 든 피부에서는 한번 커진 모공이 다시 닫히지 않는 것으로 보였어요. 물 온도로 모공 크기를 바꿀 수 있다는 근거는 찾기 어려워요.", "refs": [{"label": "Mizukoshi 외, Skin Res Technol 2014", "href": "https://pubmed.ncbi.nlm.nih.gov/23750904/"}], "cols": [{"label": "모공은 줄어들지 않는다?", "href": "https://www.maypureclinic.com/community/yeonsinnae/136166886"}]}, {"q": "모공은 나이 때문에만 커지나요?", "a": "60명을 측정한 연구에서 모공 크기는 피지 분비량과 가장 관련이 컸고, 그다음은 남성이라는 점이었으며 나이도 관련이 있었어요. 여성은 생리 주기 중 배란기에 모공이 더 커 보였어요. 그래서 같은 사람이라도 시기와 피지 상태에 따라 모공이 달라 보일 수 있어요.", "refs": [{"label": "Roh 외, Br J Dermatol 2006", "href": "https://pubmed.ncbi.nlm.nih.gov/17034515/"}], "cols": []}, {"q": "피지만 잘 관리하면 모공은 해결되나요?", "a": "연구에서는 피지가 많을수록 모공이 많았지만, 피부 탄력이 떨어질수록 모공이 늘어나는 관련성도 함께 나타났어요. 피지 관리뿐 아니라 탄력 저하도 모공이 눈에 띄는 데 영향을 줄 수 있다는 뜻이에요. 원인이 사람마다 달라서 관리 방향은 상담하면서 정하는 것이 좋아요.", "refs": [{"label": "Kim 외, Skin Res Technol 2013", "href": "https://pubmed.ncbi.nlm.nih.gov/22211382/"}], "cols": [{"label": "모공 고민 해결하려면? 3단계 핵심 관리 전략", "href": "https://www.maypureclinic.com/community/yeonsinnae/120618401"}]}], "faq": [{"q": "시술 후 바로 일상생활이 가능한가요?", "a": "시술에 따라 며칠 붉거나 오돌토돌할 수 있어요. 회복 기간은 상담에서 안내해 드려요."}], "habits": ["스크럽·피지 짜내기 과다", "자외선(탄력 저하)", "두꺼운 유분 화장"], "prep": ["붉거나 붓는 기간을 며칠까지 괜찮은지", "티 안 나게 조금, 또는 뚜렷한 변화 중 어느 쪽인지", "다가오는 중요한 일정이 있는지", "예전에 받아 본 시술과 그때 느낌", "상담 메이 노트를 보며 고민과 원하는 방향을 함께 확인해요.", "진료·시술 원장님이 피부를 보고 방법과 강도를 정해요.", "관리 시술 뒤 주의할 점과 다음 관리 시기를 안내해 드려요."], "columns": [{"label": "모공은 줄어들지 않는다?", "href": "https://www.maypureclinic.com/community/yeonsinnae/136166886"}, {"label": "모공 고민 해결하려면? 3단계 핵심 관리 전략", "href": "https://www.maypureclinic.com/community/yeonsinnae/120618401"}], "next": ["texture", "scar", "acne"]}, {"slug": "scar", "title": "흉터(패인 흉터)", "lead": "여드름이 지나간 자리가 패이거나 울퉁불퉁하게 남았나요?", "cause": ["깊은 염증이나 상처가 피부 아래 조직을 손상시키면, 회복하는 과정에서 콜라겐이 충분히 채워지지 않아 그 자리가 패여요.", "여드름을 손으로 짜거나 딱지를 떼면 손상이 더 깊어져 흉터가 남기 쉬워요."], "forwho": ["볼에 작게 패인 자국이 있어요", "비스듬한 빛에서 피부가 울퉁불퉁해 보여요", "화장으로 가려도 요철이 보여요"], "steps": [{"title": "색만 남은 자국", "desc": "패임이 없다면 색을 옅게 하는 관리를 봐요."}, {"title": "패인 흉터", "desc": "회차를 두고 차근히 재생시켜 채워 가요."}], "methods": [{"name": "쿼드세이", "badge": "", "desc": "니들 고주파로 흉터 부위 재생을 도와요."}, {"name": "CO2 프락셀", "badge": "", "desc": "깊게 패인 흉터 부위를 레이저로 재생시켜 채워요. 회복 기간은 7일 정도예요."}, {"name": "리쥬란", "badge": "", "desc": "피부 재생을 보강해요."}, {"name": "피코프락셀", "badge": "", "desc": "미세한 재생으로 요철을 정돈해요."}], "recovery": [{"name": "쿼드세이", "text": "마취 크림을 30~40분 바른 뒤 10~15분 시술해요. 니들 고주파라 통증은 보통 정도예요. 1~3일 붉거나 붓고 작은 딱지가 생길 수 있어요. 세안은 다음 날부터 순하게, 화장은 1~2일 뒤부터 해 주세요. 2~4주 뒤부터 모공과 결이 좋아지고 3회쯤 뚜렷해져요. 4~6주 간격으로 3~5회 받고 6개월~1년 유지돼요. 3~5일은 사우나·음주·격한 운동을 피해 주세요."}, {"name": "CO2 프락셀", "text": "마취 크림을 30~40분 바른 뒤 15~30분 시술해요. 마취 후에도 뜨겁고 따가운 편이라 통증이 꽤 있어요. 붓기는 2~3일, 딱지는 5~10일, 붉은 기는 2~4주(길면 1~3개월) 가요. 세안은 다음 날부터 미온수로 가볍게, 화장은 딱지가 떨어지는 5~7일 뒤부터 해 주세요. 일상 복귀는 7일 정도로 봐요. 딱지가 떨어진 뒤 결은 빨리 좋아지고, 흉터는 1~3개월에 걸쳐 차올라요. 4~8주 간격 3~5회를 받고, 좋아진 흉터는 오래 유지돼요. 딱지는 억지로 떼지 말고 재생 크림·보습을 챙기며, 색소침착을 막기 위해 4주 이상 자외선 차단을 꼼꼼히 해 주세요."}, {"name": "리쥬란", "text": "마취 크림을 20~30분 바른 뒤 15~30분 주입해요. 통증은 보통 정도예요. 손주사는 주사 자리가 오돌토돌하게 1~3일 올라오고, 멍·붓기는 2~5일 가다가 대부분 1주 안에 좋아져요. 세안은 당일, 화장은 다음 날부터 가볍게 하시면 돼요. 3~4주 간격으로 3회 받고, 2주 뒤부터 결이 달라져 3회를 마치면 탄력이 좋아져요. 6~12개월 유지되고, 이후 6~12개월마다 1회 관리해요. 올라온 자리는 문지르거나 마사지하지 말고, 3일은 사우나·음주·격한 운동을 피해 주세요."}, {"name": "피코프락셀", "text": "마취 크림을 30분 바른 뒤 10~20분 시술해요. 톡톡 튕기는 느낌으로 약간 따끔해요. 3~5일 붉고, 모래알 같은 작은 딱지가 2~5일 생겼다가 대부분 1주 안에 정리돼요. 세안은 당일 순하게, 가벼운 화장은 다음 날부터 가능해요. 모공은 2주, 흉터는 2~4주 간격으로 받고, 흉터는 3~5회 이상 쌓여야 좋아져요. 1주일은 사우나·과음·각질 정리를 피해 주세요."}], "redflag": ["흉터가 원래 상처보다 커지며 부풀어 오르는 편(켈로이드)이면 시술 전에 꼭 알려 주세요."], "myths": [{"q": "흉터에 비타민E를 바르면 옅어지나요?", "a": "수술 흉터를 반으로 나눠 한쪽에만 비타민E를 바른 이중맹검 연구에서 흉터가 좋아지는 효과는 보이지 않았어요. 오히려 참여자의 약 3분의 1에서 접촉피부염(바른 자리 염증)이 생겼어요. 흔히 알려진 방법이어도 흉터에 무언가를 바르기 전에는 먼저 상담받아 보세요.", "refs": [{"label": "Baumann 외, Dermatol Surg 1999", "href": "https://pubmed.ncbi.nlm.nih.gov/10417589/"}], "cols": []}, {"q": "여드름 흉터는 여드름이 심할 때만 생기나요?", "a": "피부과를 찾은 여드름 환자 약 2천 명 중 43%에 흉터가 있었고, 그중 69%는 여드름 정도가 가벼움~중간이었어요. 흉터 위험을 높인 요인에는 여드름이 시작된 뒤 제대로 된 치료를 받기까지 걸린 시간도 포함됐어요. 생긴 흉터를 완전히 없애기는 어려워서 연구자들은 여드름을 일찍 치료하는 것이 중요하다고 봤어요.", "refs": [{"label": "Tan 외, J Drugs Dermatol 2017", "href": "https://pubmed.ncbi.nlm.nih.gov/28300850/"}], "cols": [{"label": "여드름 흔적, 자국일까 흉터일까?", "href": "https://www.maypureclinic.com/community/yeonsinnae/118380810"}]}, {"q": "흉터 치료는 한 가지만 꾸준히 받으면 되나요?", "a": "무작위 연구 11편을 종합한 분석에서 레이저와 다른 시술을 함께 한 경우가 레이저만 한 경우보다 개선 정도와 만족도가 더 높았어요. 흉터는 모양과 깊이가 다양해서 한 가지 방법으로 모두 해결하기 어려운 경우가 많아요. 어떤 방법을 어떻게 조합할지는 흉터 상태를 보고 원장님이 판단해요.", "refs": [{"label": "Aljefri 외, Dermatol Ther 2022", "href": "https://pubmed.ncbi.nlm.nih.gov/36183145/"}], "cols": []}], "faq": [{"q": "흉터는 완전히 없어지나요?", "a": "흉터 깊이와 종류에 따라 달라요. 여러 회에 걸쳐 차근히 개선하는 경우가 많아요."}], "habits": ["딱지 떼기", "관리 후 자외선 노출"], "prep": ["붉거나 붓는 기간을 며칠까지 괜찮은지", "티 안 나게 조금, 또는 뚜렷한 변화 중 어느 쪽인지", "다가오는 중요한 일정이 있는지", "예전에 받아 본 시술과 그때 느낌", "상담 메이 노트를 보며 고민과 원하는 방향을 함께 확인해요.", "진료·시술 원장님이 피부를 보고 방법과 강도를 정해요.", "관리 시술 뒤 주의할 점과 다음 관리 시기를 안내해 드려요."], "columns": [{"label": "여드름 흔적, 자국일까 흉터일까?", "href": "https://www.maypureclinic.com/community/yeonsinnae/118380810"}], "next": ["pore", "texture", "acne"]}, {"slug": "acne", "title": "여드름", "lead": "좁쌀이나 붉은 트러블이 반복되고, 자국까지 남아 고민이신가요?", "cause": ["피지가 많아지고 모공 입구가 막히면, 그 안에서 여드름균이 늘어나 염증이 생겨요. 염증이 깊어지면 붉고 아픈 몽우리가 되고, 자국이나 흉터로 남기도 해요.", "호르몬 변화, 스트레스, 수면 부족, 맞지 않는 화장품도 영향을 줘요. 성인 여드름은 피지보다 생활 환경이 더 크게 작용하기도 해요."], "forwho": ["좁쌀 같은 트러블이 자주 올라와요", "붉고 아픈 트러블이 생겨요", "턱이나 입가에 반복돼요", "트러블이 지나간 자리에 자국이 남아요"], "steps": [{"title": "지금 올라오는 여드름", "desc": "피지·염증·여드름균에 작용하는 관리부터 해요."}, {"title": "남은 자국", "desc": "색 자국을 옅게 하는 관리를 봐요."}, {"title": "염증이 심한 경우", "desc": "원장님 진료로 약 처방이나 주사를 함께 봐요."}], "methods": [{"name": "카프리", "badge": "", "desc": "피지 분비·염증·여드름균에 작용하는 레이저예요."}, {"name": "TA 주사", "badge": "", "desc": "붉게 부은 염증 몽우리를 빠르게 가라앉혀요(트리암시놀론)."}, {"name": "쿼드세이 여드름", "badge": "", "desc": "니들 고주파의 여드름 모드로 피지선과 염증 부위에 작용해요."}, {"name": "비타란", "badge": "", "desc": "염증 뒤 피부 재생을 도와요."}, {"name": "피코토닝", "badge": "", "desc": "남은 색 자국을 옅게 해요."}], "recovery": [{"name": "카프리", "text": "10분 정도 걸리고, 쿨링으로 식혀 가며 하기 때문에 따로 마취하지 않아요. 통증은 거의 없거나 약간 따끔한 정도예요. 반나절~하루 붉을 수 있지만 바로 일상생활과 세안·화장이 가능해요. 1~2주 간격으로 5~10회 받고, 1~2회 뒤부터 염증과 피지가 줄어드는 게 느껴져요. 치료하는 동안 효과가 쌓이는 방식이라 재발하면 다시 관리해요. 초반에 좁쌀 트러블이 잠깐 늘 수 있어요."}, {"name": "TA 주사", "text": "염증이 있는 여드름에 바로 놓는 주사라 5분이면 끝나고, 마취 없이 약간 따끔한 정도예요. 주사 자리는 반나절~하루 붉을 수 있지만 바로 일상생활과 세안·화장이 가능해요. 1~3일 안에 염증이 가라앉기 시작하고, 생긴 지 3일 안의 초기에 맞을수록 효과가 좋아요. 그 여드름 하나를 가라앉히는 치료라 원인 치료는 따로 필요해요. 같은 자리는 2~4주 간격을 두고, 드물게 주사 자리가 살짝 꺼질 수 있지만 대부분 2~3주 안에 회복돼요. 짜거나 만지지 마세요."}, {"name": "쿼드세이 여드름", "text": "마취 크림을 30~40분 바른 뒤 10~15분 시술해요. 통증은 보통 정도예요. 하루 정도 붉고 바늘 자국과 가벼운 붓기가 1~3일 갈 수 있어요. 화장은 다음 날부터 가능해요. 2~4주 간격으로 3~5회 받고, 2~4주 뒤부터 피지와 염증이 줄어들어요. 피지선이 줄어든 효과는 몇 달에서 1년 정도 가요. 1주일은 사우나·음주를 피하고, 시술 직후 트러블이 잠깐 올라올 수 있어요."}, {"name": "비타란", "text": "마취 크림을 바르고 진행해서 마취까지 40~60분 걸려요. 약간 따끔할 수 있어요. 주사 자리가 오돌토돌하게 올라오는 것은 반나절~하루, 붉음·작은 멍은 2~3일 갈 수 있어요. 세안은 당일 저녁 가볍게, 화장은 다음 날부터 가능해요. 2~4주 간격으로 3회 이상 받으시고, 2~4주 뒤부터 결과 광이 달라져 2~3회차쯤부터 느끼는 경우가 많아요(개인차가 있어요). 3회 기준 6개월 안팎 유지돼요. 3~5일은 사우나·음주·격한 운동을 피해 주세요."}, {"name": "피코토닝", "text": "10~15분 걸리고 보통 마취 없이 진행해요(예민하면 마취 크림). 약간 따끔한 정도이고, 붉음·열감은 몇 시간에서 하루 가지만 당일 세안·화장이 가능해요. 1주 간격으로 5~10회 받고, 1~2주 뒤부터 옅어지기 시작해 3~5회차부터 느껴져요. 이후 1~3개월마다 유지 토닝을 해요. 자외선 차단은 꼭 하고, 당일은 스크럽·필링·사우나·음주를 피해 주세요."}], "redflag": ["임신 중이거나 계획 중이면 쓸 수 없는 여드름 약이 있어 꼭 말씀해 주세요."], "myths": [{"q": "세수를 자주 할수록 여드름이 줄어드나요?", "a": "연구에서는 하루 1번, 2번, 4번 세안한 그룹을 6주간 비교했는데 그룹 간에 뚜렷한 차이는 없었어요. 하루 2번 순한 세안제로 씻은 그룹에서 좁쌀(비염증성) 여드름이 좋아졌고, 하루 1번만 씻은 그룹에서는 붉은 여드름이 늘었어요. 많이 씻는다고 더 좋아지지는 않으니 하루 2번 부드럽게 씻는 정도면 충분해요.", "refs": [{"label": "Choi 외, Pediatr Dermatol 2006", "href": "https://pubmed.ncbi.nlm.nih.gov/17014635/"}], "cols": []}, {"q": "여드름은 사춘기에만 나는 거 아닌가요?", "a": "성인 약 1천 명을 조사한 연구에서 40대 여성의 약 26%, 50대 이상 여성의 약 15%가 여드름이 있다고 답했어요. 20세 이후 모든 연령대에서 여성이 남성보다 많았어요. 어른이 되어 생긴 여드름도 흔한 피부 질환이니 혼자 참지 않으셔도 돼요.", "refs": [{"label": "Collier 외, J Am Acad Dermatol 2008", "href": "https://pubmed.ncbi.nlm.nih.gov/17945383/"}], "cols": [{"label": "여드름은 '피지'가 많아서 나는 게 아닙니다", "href": "https://www.maypureclinic.com/community/yeonsinnae/136951893"}]}, {"q": "먹는 음식은 여드름과 상관없나요?", "a": "12주 무작위 연구에서 혈당을 천천히 올리는 식단(저혈당부하 식단)을 먹은 그룹이 일반 식단 그룹보다 여드름 개수가 더 많이 줄었어요. 다만 이 그룹은 체중도 함께 줄어서 식단만의 효과인지는 아직 확실하지 않아요. 음식이 영향을 줄 수는 있지만 개인차가 커서 식단만으로 해결된다고 보기는 어려워요.", "refs": [{"label": "Smith 외, Am J Clin Nutr 2007", "href": "https://pubmed.ncbi.nlm.nih.gov/17616769/"}], "cols": []}], "faq": [{"q": "짜도 되나요?", "a": "손으로 짜면 염증이 깊어지고 흉터가 남기 쉬워요. 병원에서 압출이나 진정 관리를 받는 것이 좋아요."}, {"q": "레이저만으로 좋아지나요?", "a": "상태에 따라 약이나 생활 관리를 함께해야 하는 경우가 많아요."}], "habits": ["손으로 짜기", "휴대폰 화면·베개 커버 위생", "두꺼운 크림·오일"], "prep": ["붉거나 붓는 기간을 며칠까지 괜찮은지", "티 안 나게 조금, 또는 뚜렷한 변화 중 어느 쪽인지", "다가오는 중요한 일정이 있는지", "예전에 받아 본 시술과 그때 느낌", "상담 메이 노트를 보며 고민과 원하는 방향을 함께 확인해요.", "진료·시술 원장님이 피부를 보고 방법과 강도를 정해요.", "관리 시술 뒤 주의할 점과 다음 관리 시기를 안내해 드려요."], "columns": [{"label": "여드름은 '피지'가 많아서 나는 게 아닙니다", "href": "https://www.maypureclinic.com/community/yeonsinnae/136951893"}, {"label": "여드름 흔적, 자국일까 흉터일까?", "href": "https://www.maypureclinic.com/community/yeonsinnae/118380810"}], "next": ["scar", "pore", "redness"]}, {"slug": "wart", "title": "편평사마귀", "lead": "얼굴이나 목에 작고 납작한 돌기가 하나둘 늘어나나요?", "cause": ["사람유두종바이러스(HPV)가 피부의 작은 상처로 들어가 생기는 작고 납작한 돌기예요.", "긁거나 면도하면 바이러스가 주변으로 퍼져 줄지어 생기기도 해요. 수건을 같이 쓰는 것도 피하는 것이 좋아요."], "forwho": ["피부색이나 연갈색의 납작한 돌기가 있어요", "긁은 자리를 따라 줄지어 생겼어요", "개수가 조금씩 늘어나요"], "steps": [{"title": "개수가 적을 때", "desc": "번지기 전에 정리하면 관리가 수월해요."}, {"title": "넓게 번졌을 때", "desc": "여러 번에 나눠 정리하고 재발을 함께 살펴요."}], "methods": [{"name": "CO2 레이저", "badge": "", "desc": "표면의 작은 돌기를 정밀하게 정리해요."}], "recovery": [{"name": "CO2 레이저", "text": "개수에 따라 5~15분 걸리고, 마취 크림(큰 점은 주사 마취)을 하면 약간 따끔한 정도예요. 딱지는 7~10일 가고, 떨어진 뒤 붉은 자국이 1~3개월 남았다가 옅어져요. 바로 일상생활이 가능하고, 재생 테이프를 1~2주 붙여 두며 세안은 다음 날부터 테이프 위로 가볍게, 화장은 테이프 위에 하거나 딱지가 떨어진 뒤 해 주세요. 보통 1회로 끝나고 깊은 점이나 남은 사마귀는 4~8주 뒤 1~2회 더 해요. 점은 대부분 다시 생기지 않지만 편평사마귀는 바이러스라 다시 생기거나 번질 수 있어요. 긁거나 만지지 말고 1~3개월은 자외선 차단을 꼼꼼히 해 주세요."}], "redflag": [], "myths": [{"q": "편평사마귀가 갑자기 빨갛고 가려워졌어요. 더 나빠진 건가요?", "a": "편평사마귀 환자 25명을 관찰한 연구에서 모든 사마귀에 갑자기 염증(붉어짐)이 생긴 뒤 2~6주 안에 사라졌어요. 몸의 면역이 바이러스를 공격하면서 나타나는 반응으로 해석됐어요. 다만 모든 붉어짐이 이런 경우는 아니니 변화가 있으면 진료로 확인하세요.", "refs": [{"label": "Tagami 외, Arch Dermatol 1977", "href": "https://pubmed.ncbi.nlm.nih.gov/900963/"}], "cols": []}, {"q": "얼굴에 납작하게 오돌토돌 난 건 다 편평사마귀인가요?", "a": "편평사마귀로 보였던 성인 환자를 조직검사한 연구에서 절반가량(약 49%)은 사마귀가 아니라 검버섯 계열(지루각화증)이었어요. 편평사마귀는 한데 모여 나거나 긁힌 자리를 따라 줄지어 생기는 경향이 진단 단서로 쓰여요. 그래서 긁거나 면도할 때 번질 수 있고, 눈으로 보고 스스로 판단하기는 어려워요.", "refs": [{"label": "Kim 외, J Dermatol 2015", "href": "https://pubmed.ncbi.nlm.nih.gov/25571765/"}], "cols": []}, {"q": "사마귀는 꼭 치료해야 없어지나요?", "a": "초등학생 약 1,100명을 15개월 정도 추적한 연구에서 사마귀가 있던 아이의 절반가량이 1년 안에 저절로 깨끗해졌고, 어릴수록 잘 사라졌어요. 이 연구는 손발 사마귀가 대상이라 얼굴 편평사마귀에 그대로 적용하기는 어렵고 개인차도 커요. 기다려 볼지 치료할지는 사마귀의 범위와 불편함을 보고 원장님이 판단해요.", "refs": [{"label": "Bruggink 외, Ann Fam Med 2013", "href": "https://pubmed.ncbi.nlm.nih.gov/24019275/"}], "cols": []}], "faq": [{"q": "다시 생기나요?", "a": "바이러스 때문이라 재발할 수 있어요. 긁지 않고 면도 도구를 따로 쓰는 등 생활 관리가 중요해요."}], "habits": ["긁기·면도", "수건 같이 쓰기"], "prep": ["붉거나 붓는 기간을 며칠까지 괜찮은지", "티 안 나게 조금, 또는 뚜렷한 변화 중 어느 쪽인지", "다가오는 중요한 일정이 있는지", "예전에 받아 본 시술과 그때 느낌", "상담 메이 노트를 보며 고민과 원하는 방향을 함께 확인해요.", "진료·시술 원장님이 피부를 보고 방법과 강도를 정해요.", "관리 시술 뒤 주의할 점과 다음 관리 시기를 안내해 드려요."], "columns": [], "next": ["pigment", "texture", "pore"]}];
+const BY = Object.fromEntries(DATA.map(d => [d.slug, d]));
+const app = document.getElementById("app");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const src = new URLSearchParams(location.search).get("src") || "";
+
+/* 읽은 글 표시 (이 기기에서만) */
+let READ = new Set();
+try { READ = new Set(JSON.parse(localStorage.getItem("ysn-notes-read") || "[]")); } catch (e) {}
+function markRead(slug) { READ.add(slug); try { localStorage.setItem("ysn-notes-read", JSON.stringify([...READ])); } catch (e) {} }
+
+function words(d) { return JSON.stringify(d).length; }
+function minutes(d) { return Math.max(3, Math.round(words(d) / 550)); }
+function firstSentence(t) { const m = String(t).match(/^.*?[.?!요]\s/); return m ? m[0].trim() : t; }
+
+/* ── 피부 단면 삽화 ───────────────────────── */
+const FIG = {
+  pigment: ["기저층에 멜라닌 색소가 몰리면 얼룩으로 보여요. 기미는 진피 쪽까지 색소가 내려가기도 해요.", "멜라닌 색소"],
+  wrinkle: ["표정 근육이 반복해 접히는 자리에서 진피 콜라겐이 얇아지면 선이 남아요.", "얇아진 콜라겐"],
+  sagging: ["지방층과 이를 붙잡는 지지 구조가 아래로 내려오면 턱선과 볼이 처져 보여요.", "내려온 지방층"],
+  elasticity: ["진피의 콜라겐·탄력 섬유가 줄고 끊어지면 피부가 쉽게 늘어지고 얇아져요.", "끊어진 탄력 섬유"],
+  volume: ["피부 아래 지방이 줄어 꺼지면 그늘이 생기고 나이 들어 보여요.", "줄어든 지방"],
+  redness: ["진피의 가는 혈관이 넓어지고 쉽게 반응하면 붉음과 열감이 이어져요.", "넓어진 혈관"],
+  dry: ["가장 바깥 각질층 장벽이 틈이 생기면 수분이 빠져나가 당기고 거칠어져요.", "빠져나가는 수분"],
+  texture: ["각질이 고르게 떨어지지 않고 쌓이면 표면이 울퉁불퉁하고 빛이 고르게 반사되지 않아요.", "고르지 않은 각질"],
+  pore: ["피지가 많고 모공 주변 지지 조직이 약해지면 입구가 늘어나 보여요.", "늘어난 모공과 피지"],
+  scar: ["염증이 진피를 손상시키면 아래로 당기는 섬유 조직이 생겨 패인 흉터가 남아요.", "아래로 당기는 섬유"],
+  acne: ["모공이 막히고 그 안에서 염증이 생기면 붉게 솟은 여드름이 돼요.", "막힌 모공과 염증"],
+  wart: ["바이러스가 표피 세포를 늘려 작고 납작한 돌기를 만들어요.", "표피 돌기"]
+};
+function skin(slug) {
+  const W = 640, E0 = 52, E1 = 92, D1 = 196, H = 270;
+  const surf = [];
+  for (let x = 0; x <= W; x += 8) {
+    let y = E0 + Math.sin(x / 40) * 2;
+    if (slug === "wrinkle" && Math.abs(x - 330) < 34) y += 22 * (1 - Math.abs(x - 330) / 34);
+    if (slug === "scar" && Math.abs(x - 330) < 70) y += 18 * Math.cos((x - 330) / 70 * Math.PI / 2);
+    if (slug === "volume" && Math.abs(x - 320) < 150) y += 12 * Math.cos((x - 320) / 150 * Math.PI / 2);
+    if (slug === "texture") y += Math.sin(x / 9) * 4 + Math.sin(x / 23) * 3;
+    if (slug === "wart") for (const c of [190, 300, 430]) if (Math.abs(x - c) < 26) y -= 12 * Math.cos((x - c) / 26 * Math.PI / 2);
+    if (slug === "acne" && Math.abs(x - 330) < 46) y -= 16 * Math.cos((x - 330) / 46 * Math.PI / 2);
+    if (slug === "sagging") y += x / W * 14;
+    surf.push([x, y]);
+  }
+  const top = surf.map(([x, y]) => `${x},${y.toFixed(1)}`).join(" ");
+  const shift = (x, base) => base + (slug === "sagging" ? x / W * 22 : 0);
+  let g = "";
+  g += `<polygon class="epi" points="${top} ${W},${shift(W, E1)} 0,${shift(0, E1)}"/>`;
+  g += `<polygon class="derm" points="0,${shift(0, E1)} ${W},${shift(W, E1)} ${W},${shift(W, D1)} 0,${shift(0, D1)}"/>`;
+  g += `<polygon class="fat" points="0,${shift(0, D1)} ${W},${shift(W, D1)} ${W},${H} 0,${H}"/>`;
+  // 콜라겐 섬유
+  for (let r = 0; r < 6; r++) {
+    const y0 = E1 + 14 + r * 16; let d = "";
+    for (let x = 0; x <= W; x += 10) {
+      const yy = shift(x, y0) + Math.sin((x + r * 37) / 22) * 4;
+      d += (x ? " L" : "M") + x + "," + yy.toFixed(1);
+    }
+    let cls = "fiber";
+    if (slug === "elasticity") cls += " broken";
+    if (slug === "wrinkle" && r < 3) cls += " thin";
+    g += `<path class="${cls}" d="${d}"/>`;
+  }
+  // 지방 세포
+  for (let i = 0; i < 12; i++) {
+    const cx = 30 + i * 54, base = shift(cx, D1) + 34;
+    let rx = 24, ry = 16;
+    if (slug === "volume" && Math.abs(cx - 320) < 150) { rx = 14; ry = 9; }
+    g += `<ellipse class="cell" cx="${cx}" cy="${base + (slug === "sagging" ? 8 : 0)}" rx="${rx}" ry="${ry}"/>`;
+  }
+  let ox = 330, oy = 120, label = FIG[slug][1];
+  if (slug === "pigment") {
+    for (let i = 0; i < 26; i++) { const x = 190 + (i * 37) % 280, y = E1 - 6 + (i % 3) * 3; g += `<circle class="pig" cx="${x}" cy="${y}" r="${3 + (i % 3)}"/>`; }
+    for (let i = 0; i < 7; i++) g += `<circle class="pig soft" cx="${230 + i * 30}" cy="${E1 + 20 + (i % 2) * 10}" r="4"/>`;
+    ox = 330; oy = E1 - 6;
+  }
+  if (slug === "redness") {
+    for (const [x0, a] of [[120, 1], [300, -1], [470, 1]]) g += `<path class="vessel" d="M${x0},${E1 + 60} C${x0 + 40 * a},${E1 + 10} ${x0 + 90},${E1 + 30} ${x0 + 130},${E1 + 12}"/>`;
+    ox = 360; oy = E1 + 24;
+  }
+  if (slug === "dry") {
+    for (let i = 0; i < 9; i++) { const x = 70 + i * 62; g += `<path class="scale" d="M${x},${E0 + 1} l26,-9"/>`; }
+    for (const x of [150, 330, 510]) g += `<path class="drop" d="M${x},${E0 - 14} c-6,-8 -6,-14 0,-22 c6,8 6,14 0,22z"/>`;
+    ox = 330; oy = E0 - 26;
+  }
+  if (slug === "pore" || slug === "acne") {
+    const w = slug === "pore" ? 24 : 12;
+    g += `<path class="follicle" d="M${330 - w},${E0 + 2} C${330 - w},${E1} 322,${E1 + 40} 324,${E1 + 70} L336,${E1 + 70} C338,${E1 + 40} ${330 + w},${E1} ${330 + w},${E0 + 2}"/>`;
+    g += `<ellipse class="sebum" cx="330" cy="${E1 + 10}" rx="${slug === "pore" ? 9 : 10}" ry="${slug === "pore" ? 22 : 18}"/>`;
+    if (slug === "acne") g += `<circle class="inflame" cx="330" cy="${E1 + 8}" r="44"/>`;
+    ox = 330; oy = E1 + 10;
+  }
+  if (slug === "scar") { g += `<path class="band" d="M300,${E0 + 22} L310,${D1 + 10} M330,${E0 + 26} L330,${D1 + 12} M360,${E0 + 22} L350,${D1 + 10}"/>`; ox = 330; oy = E1 + 40; }
+  if (slug === "sagging") { g += `<path class="arrow" d="M560,${E1 + 10} L560,${D1 + 50} M548,${D1 + 36} L560,${D1 + 50} L572,${D1 + 36}"/>`; ox = 470; oy = D1 + 44; }
+  if (slug === "volume") { ox = 320; oy = D1 + 34; }
+  if (slug === "elasticity") { ox = 330; oy = E1 + 46; }
+  if (slug === "wrinkle") { ox = 330; oy = E1 + 22; }
+  if (slug === "texture") { ox = 330; oy = E0 - 4; }
+  if (slug === "wart") { ox = 300; oy = E0 - 10; }
+  // 층 이름
+  g += `<text class="lbl" x="12" y="${E0 + 30}">표피</text><text class="lbl" x="12" y="${E1 + 60}">진피</text><text class="lbl" x="12" y="${D1 + 50}">피하지방</text>`;
+  // 지시선
+  const lx = ox > 400 ? ox - 120 : ox + 60, ly = Math.max(30, oy - 36);
+  g += `<path class="lead" d="M${ox},${oy} L${lx},${ly}"/><circle class="dot" cx="${ox}" cy="${oy}" r="3.5"/>`;
+  g += `<text class="callout" x="${lx + (ox > 400 ? -6 : 6)}" y="${ly + 5}" text-anchor="${ox > 400 ? "end" : "start"}">${esc(label)}</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="피부 단면 그림: ${esc(label)}"><style>
+.epi{fill:var(--s-epi)}.derm{fill:var(--s-derm)}.fat{fill:var(--s-fat)}
+.fiber{fill:none;stroke:var(--s-fiber);stroke-width:2.2;stroke-linecap:round}.fiber.broken{stroke-dasharray:18 14}.fiber.thin{stroke-width:1;opacity:.6}
+.cell{fill:none;stroke:var(--s-line);stroke-width:1.4;opacity:.7}
+.pig{fill:var(--s-pig)}.pig.soft{opacity:.55}
+.vessel{fill:none;stroke:var(--s-vessel);stroke-width:5;stroke-linecap:round;opacity:.85}
+.scale{stroke:var(--s-line);stroke-width:2;stroke-linecap:round}.drop{fill:var(--teal);opacity:.55}
+.follicle{fill:var(--s-derm);stroke:var(--s-line);stroke-width:1.6}.sebum{fill:var(--s-sebum)}
+.inflame{fill:var(--s-vessel);opacity:.18}.band{stroke:var(--s-line);stroke-width:3;stroke-linecap:round}
+.arrow{fill:none;stroke:var(--teal);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.lbl{fill:var(--s-label);font:500 22px var(--body)}.lead{stroke:var(--ink);stroke-width:1.4}.dot{fill:var(--ink)}
+.callout{fill:var(--ink);font:700 27px var(--body)}
+</style>${g}</svg>`;
+}
+
+/* ── 화면 ───────────────────────── */
+function topicCard(d) {
+  return `<a class="topic" href="#${d.slug}"><h3>${esc(d.title)}</h3><span class="q">${esc(d.lead)}</span>
+    <span class="meta"><span>${minutes(d)}분 읽기</span>${READ.has(d.slug) ? '<span class="read">읽음</span>' : ""}</span></a>`;
+}
+function home() {
+  const myths = DATA.reduce((n, d) => n + d.myths.length, 0);
+  const refs = new Set(DATA.flatMap(d => d.myths.flatMap(m => m.refs.map(r => r.href)))).size;
+  const pick = ["pigment", "wrinkle", "sagging", "redness"].map(s => [BY[s], BY[s].myths[0]]);
+  const cols = []; const seen = new Set();
+  DATA.forEach(d => d.columns.forEach(c => { if (!seen.has(c.href)) { seen.add(c.href); cols.push(c); } }));
+  app.innerHTML = `
+  <section class="hero">
+    <div class="eyebrow">연신내 피부 노트</div>
+    <h1>피부 고민 12가지,<br>원인부터 차근차근</h1>
+    <p class="lead">기미부터 처짐까지 왜 생기는지, 어떤 방법이 있는지, 회복은 얼마나 걸리는지 연구 결과와 함께 정리했어요. 궁금한 고민부터 골라 읽어 보세요.</p>
+    <ul class="facts"><li><b>12</b>가지 고민</li><li><b>${myths}</b>개 오해와 진실</li><li>논문 <b>${refs}</b>편 근거</li></ul>
+  </section>
+  <section aria-labelledby="h-topics">
+    <h2 id="h-topics">어떤 고민이세요?</h2>
+    <div class="grid">${DATA.map(topicCard).join("")}</div>
+  </section>
+  <section aria-labelledby="h-myth">
+    <h2 id="h-myth">많이들 하는 오해</h2>
+    ${pick.map(([d, m]) => `<div class="myth"><span class="who">${esc(d.title)}</span><div class="q">${esc(m.q)}</div>
+      <div>${esc(firstSentence(m.a))}</div><a class="more" href="#${d.slug}-myth">이어서 읽기 →</a></div>`).join("")}
+  </section>
+  <section aria-labelledby="h-col">
+    <h2 id="h-col">연신내 닥터칼럼</h2>
+    <ul class="cols">${cols.map(c => `<li><a href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)}</a></li>`).join("")}</ul>
+    <p class="hint">칼럼은 메이퓨어 공식 커뮤니티의 연신내 게시판으로 이어져요.</p>
+  </section>
+  ${place()}`;
+}
+function place() {
+  return `<section aria-labelledby="h-map"><h2 id="h-map">오시는 길</h2><div class="place">
+    <div class="big">연신내역 지하 연결 · 메트로타워 3층 4호</div>
+    <div>서울 은평구 통일로 856 · 연신내역(3·6호선) 1, 2번 출구 도보 1분</div>
+    <dl><dt>전화</dt><dd>${esc(CLINIC.PHONE)}</dd><dt>진료시간</dt><dd>${esc(CLINIC.HOURS)}</dd><dt>주차</dt><dd>시술 고객 건물 내 2시간 무료 (입구가 좁아요)</dd></dl>
+  </div></section>`;
+}
+function article(d) {
+  const nexts = d.next.map(s => BY[s]).sort((a, b) => READ.has(a.slug) - READ.has(b.slug));
+  app.innerHTML = `
+  <a class="back" href="#">← 피부 노트 전체</a>
+  <section class="hero" style="border-bottom:0;padding-bottom:0">
+    <div class="eyebrow">피부 노트 · ${minutes(d)}분 읽기</div>
+    <h1>${esc(d.title)}</h1>
+    <p class="lead">${esc(d.lead)}</p>
+    <figure>${skin(d.slug)}<figcaption>${esc(FIG[d.slug][0])}</figcaption></figure>
+    <div class="glance">
+      <div><b>왜 생기나요</b><span>${esc(firstSentence(d.cause[0] || ""))}</span></div>
+      <div><b>연신내에서는</b><span>${esc(d.methods.map(m => m.name).join(" · "))}</span></div>
+      ${d.redflag[0] ? `<div class="warn"><b>진료 먼저</b><span>${esc(d.redflag[0])}</span></div>` : ""}
+    </div>
+  </section>
+  <section><h2>왜 생기나요</h2>${d.cause.map(p => `<p>${esc(p)}</p>`).join("")}</section>
+  ${d.forwho.length ? `<section><h2>이런 분께 도움이 될 수 있어요</h2><ul class="plain">${d.forwho.map(x => `<li>${esc(x)}</li>`).join("")}</ul></section>` : ""}
+  ${d.steps.length ? `<section><h2>상태에 따라 방법이 달라요</h2><ol class="steps">${d.steps.map(s => `<li><div><b>${esc(s.title)}</b><span>${esc(s.desc)}</span></div></li>`).join("")}</ol></section>` : ""}
+  <section><h2>메이퓨어 연신내에서 하는 방법</h2><div class="methods">${d.methods.map(m => `<div class="method"><b>${esc(m.name)}</b>${m.badge ? `<span class="badge">${esc(m.badge)}</span>` : ""}<p>${esc(m.desc)}</p></div>`).join("")}</div>
+    <p class="hint">어떤 방법이 맞을지는 피부 상태를 보고 원장님과 함께 정해요.</p></section>
+  ${d.recovery.length ? `<section><h2>시술별 회복·통증</h2><p class="hint" style="margin:-6px 0 14px">보통 기준으로 정리했어요. 사람마다 달라서 상담 때 다시 안내해 드려요.</p><div class="recov">${d.recovery.map(r => `<div><h3>${esc(r.name)}</h3><p>${esc(r.text)}</p></div>`).join("")}</div></section>` : ""}
+  ${d.redflag.length ? `<section><div class="redflag"><h2>이럴 땐 진료가 먼저예요</h2><ul class="plain">${d.redflag.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div></section>` : ""}
+  <section id="${d.slug}-myth"><h2>오해와 진실</h2><p class="hint" style="margin:-6px 0 14px">많이들 궁금해하시는 내용을 연구 결과로 정리했어요.</p><div class="myths">${d.myths.map(m => `<div class="mythcard"><div class="q">${esc(m.q)}</div><p>${esc(m.a)}</p>
+    ${m.refs.length || m.cols.length ? `<div class="refs">${m.refs.map(r => `<span>근거: <a href="${esc(r.href)}" target="_blank" rel="noopener">${esc(r.label)}</a></span>`).join("")}${m.cols.map(c => `<span>원장 칼럼: <a href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)}</a></span>`).join("")}</div>` : ""}</div>`).join("")}</div></section>
+  ${d.faq.length ? `<section><h2>상담 때 자주 묻는 것</h2><div class="faq">${d.faq.map(f => `<div><h3>${esc(f.q)}</h3><p>${esc(f.a)}</p></div>`).join("")}</div></section>` : ""}
+  <section class="two">
+    ${d.habits.length ? `<div><h2>놓치기 쉬운 생활 습관</h2><ul class="plain">${d.habits.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
+    ${d.prep.length ? `<div><h2>상담 전에 생각해 두면 좋아요</h2><ul class="plain">${d.prep.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
+  </section>
+  <section><div class="cta"><h2>${esc(d.title)} 고민, 상담부터 받아 보세요</h2><p>3D 피부 분석으로 지금 상태를 함께 보고, 방법과 일정을 정해요.</p><div class="btns" id="cta-btns"></div></div></section>
+  <section id="end" aria-labelledby="h-next"><h2 id="h-next">이어서 읽어 보세요</h2><div class="next">${nexts.map(n => `<a href="#${n.slug}"><b>${esc(n.title)}</b><span class="q">${esc(n.lead)}${READ.has(n.slug) ? " · 읽음" : ""}</span><span class="arrow">→</span></a>`).join("")}</div>
+    ${d.columns.length ? `<h3 style="margin:26px 0 6px">연신내 닥터칼럼</h3><ul class="cols">${d.columns.map(c => `<li><a href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)}</a></li>`).join("")}</ul>` : ""}
+    <p style="margin-top:22px"><a class="back" href="#">← 다른 고민 보기</a></p>
+  </section>`;
+  const b = document.getElementById("cta-btns");
+  if (CLINIC.PHONE) b.insertAdjacentHTML("beforeend", `<a class="btn" href="tel:${CLINIC.PHONE.replace(/[^0-9+]/g, "")}">전화 ${esc(CLINIC.PHONE)}</a>`);
+  if (CLINIC.NAVER_BOOKING_URL) b.insertAdjacentHTML("beforeend", `<a class="btn" href="${esc(withSrc(CLINIC.NAVER_BOOKING_URL))}" target="_blank" rel="noopener">네이버 예약</a>`);
+  if (CLINIC.KAKAO_CHANNEL_URL) b.insertAdjacentHTML("beforeend", `<a class="btn" href="${esc(CLINIC.KAKAO_CHANNEL_URL)}" target="_blank" rel="noopener">카카오톡 상담</a>`);
+}
+function withSrc(url) { if (!url || !src) return url; try { const u = new URL(url); u.searchParams.set("src", src); return u.toString(); } catch (e) { return url; } }
+
+function route() {
+  const h = decodeURIComponent(location.hash.slice(1));
+  const slug = h.replace(/-myth$/, "");
+  if (BY[slug]) {
+    article(BY[slug]); document.title = BY[slug].title + " · 연신내 피부 노트";
+    if (h.endsWith("-myth")) { const el = document.getElementById(h); if (el) { el.scrollIntoView(); return; } }
+  } else { home(); document.title = "연신내 피부 노트"; }
+  window.scrollTo(0, 0);
+}
+/* 읽기 진행 막대 + 끝까지 읽으면 '읽음' */
+addEventListener("scroll", () => {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  document.getElementById("bar").style.width = (max > 0 ? scrollY / max * 100 : 0) + "%";
+  const end = document.getElementById("end"); const slug = location.hash.slice(1).replace(/-myth$/, "");
+  if (end && BY[slug] && end.getBoundingClientRect().top < innerHeight) markRead(slug);
+}, { passive: true });
+addEventListener("hashchange", route);
+
+/* 고정 버튼 */
+const tel = CLINIC.PHONE ? "tel:" + CLINIC.PHONE.replace(/[^0-9+]/g, "") : "";
+for (const [id, href, ext] of [["dock-call", tel, false], ["top-tel", tel, false], ["dock-book", withSrc(CLINIC.NAVER_BOOKING_URL), true], ["dock-kakao", CLINIC.KAKAO_CHANNEL_URL, true]]) {
+  const el = document.getElementById(id);
+  if (!href) { el.hidden = true; continue; }
+  el.href = href; if (ext) { el.target = "_blank"; el.rel = "noopener"; }
+}
+document.getElementById("top-tel").textContent = CLINIC.PHONE;
+document.getElementById("foot-tel").textContent = CLINIC.PHONE;
+route();
+</script>
+</body>
+</html>
