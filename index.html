@@ -139,7 +139,7 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
 .dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 15; background: var(--card); border-top: 1px solid var(--rule);
   padding: 10px max(14px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px)); }
 .dock .in { max-width: 720px; margin: 0 auto; display: flex; gap: 10px; }
-.dock .btn { flex: 1; }
+.dock .btn { flex: 1; white-space: nowrap; padding-left: 6px; padding-right: 6px; }
 .dock .call { background: var(--teal); color: var(--on-teal); }
 .dock .book { background: var(--teal-soft); color: var(--teal); }
 @media (prefers-reduced-motion: no-preference) { .topic, .next a { transition: border-color .15s; } }
